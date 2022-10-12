@@ -13,10 +13,10 @@ public class Pantalla_De_Carga extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_de_carga);
 
-        int tiempo = 3000;
+        int Tiempo = 3000;
         new Handler().postDelayed(() -> {
             startActivity(new Intent(Pantalla_De_Carga.this,MainActivity.class));
             finish();
-        },tiempo);
+        },Tiempo);
     }
 }
