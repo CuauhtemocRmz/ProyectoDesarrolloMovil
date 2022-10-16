@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Agenda 10B</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="Btn_login">Login</string>
+    <string name="Btn_registro">Registro</string>
 </resources>

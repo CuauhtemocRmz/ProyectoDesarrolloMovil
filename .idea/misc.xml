@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/actividad_pantalla_de_carga.xml" value="0.325" />
+        <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_login.xml" value="0.321875" />
         <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_main.xml" value="0.28442028985507245" />
+        <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_pantalla_de_carga.xml" value="0.15653495440729484" />
+        <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_registro.xml" value="0.3078125" />
       </map>
     </option>
   </component>
