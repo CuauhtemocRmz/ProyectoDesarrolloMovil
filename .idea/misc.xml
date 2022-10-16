@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/drawable/icono_correo.xml" value="0.1045" />
+        <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/drawable/icono_password.xml" value="0.1045" />
         <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/actividad_pantalla_de_carga.xml" value="0.325" />
         <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_login.xml" value="0.321875" />
         <entry key="..\:/Users/Cuauh/AndroidStudioProjects/Agenda_10B/app/src/main/res/layout/activity_main.xml" value="0.28442028985507245" />
