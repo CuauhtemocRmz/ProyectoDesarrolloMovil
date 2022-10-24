@@ -53,7 +53,7 @@ public class Login extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         progressDialog = new ProgressDialog(Login.this);
-        progressDialog.setTitle("Espere un momento padrino");
+        progressDialog.setTitle("Espere un momento...");
         progressDialog.setCanceledOnTouchOutside(false);
 
         Btn_Logeo.setOnClickListener(new View.OnClickListener() {
@@ -77,11 +77,11 @@ public class Login extends AppCompatActivity {
         password = PassLogin.getText().toString();
 
         if(!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
-            Toast.makeText(this, "Correo Invalido", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Correo Invalido, Vuelve a Intentarlo", Toast.LENGTH_SHORT).show();
         }
 
         else if (TextUtils.isEmpty(password)){
-            Toast.makeText(this, "Ingresa Contraseña", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Campo en Blanco, Ingresa Contraseña", Toast.LENGTH_SHORT).show();
         }
 
         else {
@@ -90,7 +90,7 @@ public class Login extends AppCompatActivity {
     }
 
     private void LoginDeUsuario() {
-        progressDialog.setMessage("Iniciando Sesion papu ...");
+        progressDialog.setMessage("Iniciando Sesion...");
         progressDialog.show();
         firebaseAuth.signInWithEmailAndPassword(correo,password)
                 .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
