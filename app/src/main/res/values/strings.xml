@@ -24,6 +24,13 @@
     <string name="Btn_Logueo">Ingresar</string>
     <string name="UsuarioNuevoTXT">¿No tienes una cuenta?, Registrate</string>
 
+    <!-- MENU PRINCIPAL -->
+    <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="NombresPrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
+
+
+
 
 
 </resources>
