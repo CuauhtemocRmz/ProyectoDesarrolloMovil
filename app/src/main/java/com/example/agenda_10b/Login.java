@@ -106,7 +106,7 @@ public class Login extends AppCompatActivity {
                         }
                         else{
                             progressDialog.dismiss();
-                            Toast.makeText(Login.this, "Verifica que tus datos sean los correctos", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this, "Verifica que tus datos sean los correctos e intentalo de nuevo", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
