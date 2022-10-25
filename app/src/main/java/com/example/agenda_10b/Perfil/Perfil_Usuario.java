@@ -1,14 +1,16 @@
-package com.example.agenda_10b;
+package com.example.agenda_10b.Perfil;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class Registro extends AppCompatActivity {
+import com.example.agenda_10b.R;
+
+public class Perfil_Usuario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
+        setContentView(R.layout.activity_perfil_usuario);
     }
 }

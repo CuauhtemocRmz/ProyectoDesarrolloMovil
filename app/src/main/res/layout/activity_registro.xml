@@ -36,7 +36,7 @@
             android:layout_marginTop="15dp">
             
             <EditText
-                android:id="@+id/NombreET"
+                android:id="@+id/NombreEt"
                 android:hint="@string/NombreEt"
                 android:inputType="textPersonName|textCapWords"
                 android:padding="20dp"
@@ -72,7 +72,7 @@
             app:hintEnabled="false">
 
             <EditText
-                android:id="@+id/ContraseñaET"
+                android:id="@+id/ContraseñaEt"
                 android:hint="@string/ContraseñaEt"
                 android:inputType="textPassword"
                 android:padding="20dp"
@@ -92,7 +92,7 @@
             app:hintEnabled="false">
 
             <EditText
-                android:id="@+id/ConfirmarContraseñaET"
+                android:id="@+id/ConfirmarContraseñaEt"
                 android:hint="@string/ConfirmarContraseñaEt"
                 android:inputType="textPassword"
                 android:padding="20dp"
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"/>
 
         <TextView
-            android:id="@+id/TengocuentaTXT"
+            android:id="@+id/TengounacuentaTXT"
             android:text="@string/TengounacuentaTXT"
             android:fontFamily="@font/worksans"
             android:textSize="18sp"

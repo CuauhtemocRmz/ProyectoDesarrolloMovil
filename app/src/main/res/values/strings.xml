@@ -4,7 +4,7 @@
     <!-- MAIN ACTIVITY -->
     <string name="Btn_login">Login</string>
     <string name="Btn_registro">Registro</string>
-    
+
     <!-- ACTIVITY REGISTRO-->
     <string name="CrearCuentaTXT">Crear una cuenta</string>
     <string name="NombreEt">Nombres</string>
@@ -13,4 +13,26 @@
     <string name="ConfirmarContraseñaEt">Confirmar contraseña</string>
     <string name="RegistrarUsuario">Registrar</string>
     <string name="TengounacuentaTXT">Tengo una cuenta</string>
+
+    <!-- ACTIVIDAD LOGIN -->
+    <string name="IniciarSesionTXT">Iniciar Sesion</string>
+    <string name="CorreoLogin">Correo</string>
+    <string name="ContraseñaLogin">Contraseña</string>
+    <string name="Btn_Logueo">Ingresar</string>
+    <string name="UsuarioNuevoTXT">¿No tienes una cuenta?, Registrate</string>
+
+    <!-- MENU PRINCIPAL -->
+    <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="NombresPrincipal"> -- </string>
+    <string name="CorreoPrincipal"> -- </string>
+    <string name="UidPrincipal"> -- </string>
+
+    <string name="AgregarNotas">Agregar</string>
+    <string name="ListarNotas">Mis Notas</string>
+    <string name="Archivados">Archivados</string>
+    <string name="Perfil">Perfil</string>
+    <string name="AcercaDe">Acerca DE </string>
+    <string name="CerrarSesion">Salir</string>
+
+
 </resources>
