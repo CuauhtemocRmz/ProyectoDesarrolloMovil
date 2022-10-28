@@ -67,8 +67,17 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarNotas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MenuPrincipal.this,Agregar_Nota.class));
-                Toast.makeText(MenuPrincipal.this, "Agregar Nota", Toast.LENGTH_SHORT).show();
+
+                /*Obtenemos la información de los TextView*/
+                String Uid_Usuario = UidPrincipal.getText().toString();
+                String Correo_usuario = CorreoPrincipal.getText().toString();
+
+                /*Pasamos datos a la siguiente actividad*/
+                Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
+                intent.putExtra("Uid", Uid_Usuario);
+                intent.putExtra("Correo", Correo_usuario);
+                startActivity(intent);
+
             }
         });
         ListarNotas.setOnClickListener(new View.OnClickListener() {
