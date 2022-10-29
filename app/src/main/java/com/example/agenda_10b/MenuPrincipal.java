@@ -69,13 +69,13 @@ public class MenuPrincipal extends AppCompatActivity {
             public void onClick(View view) {
 
                 /*Obtenemos la información de los TextView*/
-                String Uid_Usuario = UidPrincipal.getText().toString();
-                String Correo_usuario = CorreoPrincipal.getText().toString();
+                String uid_usuario = UidPrincipal.getText().toString();
+                String correo_usuario = CorreoPrincipal.getText().toString();
 
                 /*Pasamos datos a la siguiente actividad*/
                 Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
-                intent.putExtra("Uid", Uid_Usuario);
-                intent.putExtra("Correo", Correo_usuario);
+                intent.putExtra("Uid", uid_usuario);
+                intent.putExtra("Correo", correo_usuario);
                 startActivity(intent);
 
             }
