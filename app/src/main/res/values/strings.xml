@@ -39,4 +39,14 @@
     <string name="CD_Eliminar">Eliminar</string>
     <string name="CD_Actualizar">Actualizar</string>
     <string name="UidPrin"> -- </string>
+
+    <!-- ITEM NOTA -->
+    <string name="ID_Nota_Item">Id Nota</string>
+    <string name="UID_Usuario_Item">Uid del usuario</string>
+    <string name="Correo_Usuario_Item">Correo de usuario</string>
+    <string name="Fecha_hora_registro_Item">Fecha y hora registro</string>
+    <string name="Titulo_Item">Título</string>
+    <string name="Descripcion_Item">Descripción</string>
+    <string name="Fecha_Item">00/00/0000</string>
+    <string name="Estado_Item">No finalizado</string>
 </resources>
