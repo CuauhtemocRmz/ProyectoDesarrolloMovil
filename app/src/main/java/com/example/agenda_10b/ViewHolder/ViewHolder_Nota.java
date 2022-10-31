@@ -3,9 +3,9 @@ package com.example.agenda_10b.ViewHolder;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.example.agenda_10b.R;
 
 public class ViewHolder_Nota extends RecyclerView.ViewHolder {
 
@@ -23,21 +23,21 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         mClickListener = clickListener;
     }
 
-    public ViewHolder_Nota(@NonNull View ItemView) {
+    public ViewHolder_Nota(@NonNull View itemView) {
         super(itemView);
         mView = itemView;
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mClickListener.onItemClick(view, getAdapterPosition());
+                mClickListener.onItemClick(view, getBindingAdapterPosition());
             }
         });
 
         itemView.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-                mClickListener.onItemLongClick(view, getAdapterPosition());
+                mClickListener.onItemLongClick(view, getBindingAdapterPosition());
                 return false;
             }
         });
