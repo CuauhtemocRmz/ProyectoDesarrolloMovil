@@ -13,74 +13,103 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp">
+        android:orientation="horizontal"
+        android:padding="5dp"/>
 
-        <TextView
-            android:id="@+id/ID_Nota_Item"
-            android:text="@string/ID_Nota_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/worksans"
+        <!-- ICONO -->
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="391dp"
+        android:layout_height="156dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/icono_item_nota" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/UID_Usuario_Item"
-            android:text="@string/UID_Usuario_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Correo_Usuario_Item"
-            android:text="@string/Correo_Usuario_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Fecha_hora_registro_Item"
-            android:text="@string/Fecha_hora_registro_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Titulo_Item"
-            android:text="@string/Titulo_Item"
-            android:textSize="25sp"
-            android:textStyle="bold"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Descripcion_Item"
-            android:text="@string/Descripcion_Item"
-            android:textSize="18sp"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Fecha_Item"
-            android:text="@string/Fecha_Item"
-            android:textSize="18sp"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <TextView
-            android:id="@+id/Estado_Item"
-            android:text="@string/Estado_Item"
-            android:visibility="gone"
-            android:fontFamily="@font/worksans"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="match_parent"
+            android:layout_marginStart="7dp"
+            android:orientation="vertical">
+
+            <!--Uid de nota-->
+            <TextView
+                android:id="@+id/Id_nota_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Id_nota_Item"
+                android:visibility="gone" />
+
+            <!--Uid de usuario-->
+            <TextView
+                android:id="@+id/Uid_Usuario_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Uid_Usuario_Item"
+                android:visibility="gone" />
+
+            <!--Correo de usuario-->
+            <TextView
+                android:id="@+id/Correo_usuario_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Correo_usuario_Item"
+                android:visibility="gone" />
+
+            <!--Fecha y hora de registro-->
+            <TextView
+                android:id="@+id/Fecha_hora_registro_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Fecha_hora_registro_Item"
+                android:visibility="gone" />
+
+            <!--Titulo de la nota-->
+            <TextView
+                android:id="@+id/Titulo_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Titulo_Item"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+            <!--Descripcion de la nota-->
+            <TextView
+                android:id="@+id/Descripcion_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Descripcion_Item"
+                android:textSize="18sp" />
+
+            <!--Fecha de la nota-->
+            <TextView
+                android:id="@+id/Fecha_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Fecha_Item"
+                android:textSize="18sp" />
+
+            <!--Estado de la nota-->
+            <TextView
+                android:id="@+id/Estado_Item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/worksans"
+                android:text="@string/Estado_Item"
+                android:visibility="gone" />
 
 
-
-
-
-
-
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 </androidx.cardview.widget.CardView>
+
