@@ -26,7 +26,6 @@
     <string name="NombresPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
     <string name="UidPrincipal"> -- </string>
-
     <string name="AgregarNotas">Agregar</string>
     <string name="ListarNotas">Mis Notas</string>
     <string name="Archivados">Archivados</string>
@@ -34,9 +33,31 @@
     <string name="AcercaDe">Acerca DE </string>
     <string name="CerrarSesion">Salir</string>
 
+    <!-- AGREGAR NOTA -->
+    <string name="Uid_Usuario">Uid del usuario</string>
+    <string name="Correo_Usuario">Correo de usuario</string>
+    <string name="Fecha_hora_actual">Fecha y hora actual</string>
+    <string name="Titulo">Título</string>
+    <string name="Descripcion">Descripción</string>
+    <string name="Btn_Calendario">Calendario</string>
+    <string name="Fecha">00/00/0000</string>
+    <string name="Estado">Estado</string>
+
+    <!--ITEM NOTA-->
+    <string name="Id_nota_Item">Id nota</string>
+    <string name="Uid_Usuario_Item">Uid del usuario</string>
+    <string name="Correo_usuario_Item">Correo del usuario</string>
+    <string name="Fecha_hora_registro_Item">Fecha y hora registro</string>
+    <string name="Titulo_Item">Título</string>
+    <string name="Descripcion_Item">Descripción</string>
+    <string name="Fecha_Item">00/00/0000</string>
+    <string name="Estado_Item">No finalizado</string>
+
+    <!--MENÚ-->
+    <string name="Agregar_Nota_BD">Agregar</string>
+
     <!-- CUADRO DE DIALOGO OPCIONES -->
     <string name="ElijeOpcionTXT">Elija una opcion</string>
     <string name="CD_Eliminar">Eliminar</string>
     <string name="CD_Actualizar">Actualizar</string>
-    <string name="UidPrin"> -- </string>
 </resources>
