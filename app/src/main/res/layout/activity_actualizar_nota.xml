@@ -11,8 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:padding="10dp"/>
 
+
+        <!--UID NOTA-->
+        <TextView
+            android:id="@+id/Id_nota_A"
+            android:text="@string/Id_nota_A"
+            android:fontFamily="@font/worksans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
         <!--UID DEL USUARIO-->
         <TextView
             android:id="@+id/Uid_Usuario_A"
@@ -40,10 +48,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
+        <!--ESTADO DE LA NOTA-->
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Tarea_Finalizada"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:visibility="gone"
+                android:background="#16A085"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/Tarea_No_Finalizada"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="5dp"
+                android:visibility="gone"
+                android:background="#E74C3C"/>
+
+
+            <TextView
+                android:id="@+id/Estado_A"
+                android:text="@string/Estado_A"
+                android:textSize="20sp"
+                android:fontFamily="@font/worksans"
+                android:layout_marginStart="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
         <!--TITULO-->
         <EditText
-            android:id="@+id/Titulo"
-            android:hint="@string/Titulo"
+            android:id="@+id/Titulo_A"
+            android:hint="@string/Titulo_A"
             android:textSize="25sp"
             android:textStyle="bold"
             android:fontFamily="@font/worksans"
@@ -87,15 +128,22 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!--ESTADO DE LA NOTA-->
-        <TextView
-            android:id="@+id/Estado_A"
-            android:text="@string/Estado_A"
-            android:textSize="20sp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/worksans"
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp">
+            <Spinner
+                android:id="@+id/Spiner_estado"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
+            <TextView
+                android:id="@+id/Estado_nuevo"
+                android:text="@string/Estado_nuevo"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"/>
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 </ScrollView>

@@ -63,7 +63,7 @@
 
 
     <!-- Actializar nota -->
-    <string name="id_nota_A">id nota</string>
+    <string name="Id_nota_A">id nota</string>
     <string name="Uid_Usuario_A">Uid del usuario</string>
     <string name="Correo_Usuario_A">Correo de usuario</string>
     <string name="Fecha_registro_A">Fecha de registro</string>
@@ -72,6 +72,12 @@
     <string name="Btn_Calendario_A">Calendario</string>
     <string name="Fecha_A">00/00/0000</string>
     <string name="Estado_A">Estado</string>
+    <string name="Estado_nuevo">--</string>
 
 
+    <!--Spinner -->
+    <string-array name="Estados_nota">
+        <item>Finalizado</item>
+        <item>No finalizado</item>
+    </string-array>
 </resources>
