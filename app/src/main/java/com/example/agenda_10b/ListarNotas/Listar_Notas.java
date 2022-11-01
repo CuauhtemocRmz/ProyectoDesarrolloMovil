@@ -5,6 +5,8 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.agenda_10b.ActualizarNota.Actualizar_Nota;
 import com.example.agenda_10b.Objetos.Nota;
 import com.example.agenda_10b.ViewHolder.ViewHolder_Nota;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -17,6 +19,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -111,7 +114,9 @@ public class Listar_Notas extends AppCompatActivity {
                         CD_Actualizar.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(Listar_Notas.this, "Nota actualizada", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Listar_Notas.this, "Nota actualizada", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(Listar_Notas.this, Actualizar_Nota.class));
+                                dialog.dismiss();
                             }
                         });
 

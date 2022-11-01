@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_10B"
         tools:targetApi="31">
-        <activity android:name=".Perfil.Perfil_Usuario"></activity>
+        <activity android:name=".ActualizarNota.Actualizar_Nota" />
+        <activity android:name=".Perfil.Perfil_Usuario" />
         <activity android:name=".NotasArchivadas.Notas_Archivadas" />
         <activity android:name=".ListarNotas.Listar_Notas" />
         <activity android:name=".AgregarNota.Agregar_Nota" />

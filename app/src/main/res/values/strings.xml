@@ -60,4 +60,18 @@
     <string name="ElijeOpcionTXT">Elija una opcion</string>
     <string name="CD_Eliminar">Eliminar</string>
     <string name="CD_Actualizar">Actualizar</string>
+
+
+    <!-- Actializar nota -->
+    <string name="id_nota_A">id nota</string>
+    <string name="Uid_Usuario_A">Uid del usuario</string>
+    <string name="Correo_Usuario_A">Correo de usuario</string>
+    <string name="Fecha_registro_A">Fecha de registro</string>
+    <string name="Titulo_A">Título</string>
+    <string name="Descripcion_A">Descripción</string>
+    <string name="Btn_Calendario_A">Calendario</string>
+    <string name="Fecha_A">00/00/0000</string>
+    <string name="Estado_A">Estado</string>
+
+
 </resources>
