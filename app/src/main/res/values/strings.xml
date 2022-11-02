@@ -55,6 +55,7 @@
 
     <!--MENÚ-->
     <string name="Agregar_Nota_BD">Agregar</string>
+    <string name="Actualizar_Nota_BD">Actualizar</string>
 
     <!-- CUADRO DE DIALOGO OPCIONES -->
     <string name="ElijeOpcionTXT">Elija una opcion</string>
@@ -75,9 +76,9 @@
     <string name="Estado_nuevo">--</string>
 
 
-    <!--Spinner -->
+    <!--Spinner - ESTADO -->
     <string-array name="Estados_nota">
-        <item>Finalizado</item>
         <item>No finalizado</item>
+        <item>Finalizado</item>
     </string-array>
 </resources>

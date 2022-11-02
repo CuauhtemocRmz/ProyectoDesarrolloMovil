@@ -18,6 +18,8 @@
         <TextView
             android:id="@+id/Id_nota_A"
             android:text="@string/Id_nota_A"
+            android:textSize="18dp"
+            android:visibility="gone"
             android:fontFamily="@font/worksans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -26,6 +28,7 @@
             android:id="@+id/Uid_Usuario_A"
             android:hint="@string/Uid_Usuario_A"
             android:textSize="18sp"
+            android:visibility="gone"
             android:fontFamily="@font/worksans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -35,6 +38,7 @@
             android:id="@+id/Correo_Usuario_A"
             android:hint="@string/Correo_Usuario_A"
             android:textSize="18sp"
+            android:visibility="gone"
             android:fontFamily="@font/worksans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -44,6 +48,7 @@
             android:id="@+id/Fecha_registro_A"
             android:hint="@string/Fecha_registro_A"
             android:textSize="18sp"
+            android:visibility="gone"
             android:fontFamily="@font/worksans"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
