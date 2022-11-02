@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="10dp"/>
+        android:padding="10dp">
 
 
         <!--UID NOTA-->
@@ -69,7 +69,6 @@
                 android:layout_marginStart="5dp"
                 android:visibility="gone"
                 android:background="#E74C3C"/>
-
 
             <TextView
                 android:id="@+id/Estado_A"
@@ -143,6 +142,8 @@
                 android:text="@string/Estado_nuevo"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
