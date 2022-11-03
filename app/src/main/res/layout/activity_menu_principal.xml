@@ -34,7 +34,7 @@
                 android:layout_weight="1"
                 android:layout_gravity="center"
                 android:layout_marginStart="2dp"
-                android:src="drawable/imagen_perfil"/>
+                android:src="@drawable/imagen_perfil"/>
 
             <!--DATOS-->
             <androidx.appcompat.widget.LinearLayoutCompat

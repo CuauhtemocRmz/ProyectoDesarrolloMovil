@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.agenda_10b.Detalle.Detalle_Nota;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -46,6 +48,9 @@ public class Listar_Notas extends AppCompatActivity {
 
     Dialog dialog;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +64,9 @@ public class Listar_Notas extends AppCompatActivity {
 
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true);
+
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");

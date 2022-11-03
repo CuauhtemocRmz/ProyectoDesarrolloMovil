@@ -43,7 +43,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-        <!--FECHA DE RESIGISTRO-->
+        <!--FECHA DE REGISTRO-->
         <TextView
             android:id="@+id/Fecha_registro_A"
             android:hint="@string/Fecha_registro_A"
@@ -85,6 +85,7 @@
                 android:layout_height="wrap_content"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
+
         <!--TITULO-->
         <EditText
             android:id="@+id/Titulo_A"
