@@ -37,6 +37,7 @@
     <string name="Uid_Usuario">Uid del usuario</string>
     <string name="Correo_Usuario">Correo de usuario</string>
     <string name="Fecha_hora_actual">Fecha y hora actual</string>
+    <string name="Fecha_hora_actual_TXT">Fecha de Registro</string>
     <string name="Titulo">Título</string>
     <string name="Descripcion">Descripción</string>
     <string name="Btn_Calendario">Calendario</string>
@@ -63,7 +64,7 @@
     <string name="CD_Actualizar">Actualizar</string>
 
 
-    <!-- Actializar nota -->
+    <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">id nota</string>
     <string name="Uid_Usuario_A">Uid del usuario</string>
     <string name="Correo_Usuario_A">Correo de usuario</string>
@@ -76,9 +77,28 @@
     <string name="Estado_nuevo">--</string>
 
 
-    <!--Spinner - ESTADO -->
+    <!--SPINNER - ESTADO -->
     <string-array name="Estados_nota">
         <item>No finalizado</item>
         <item>Finalizado</item>
     </string-array>
+
+    <!--DETALLE NOTA-->
+    <string name="Id_nota_Detalle_TXT">ID de la nota: </string>
+    <string name="Id_nota_Detalle">ID nota</string>
+    <string name="Uid_usuario_Detalle_TXT">UID de usuario: </string>
+    <string name="Uid_usuario_Detalle">UID usuario</string>
+    <string name="Correo_usuario_Detalle_TXT">Correo de usuario: </string>
+    <string name="Correo_usuario_Detalle">Correo usuario</string>
+    <string name="Titulo_Detalle_TXT">Título: </string>
+    <string name="Titulo_Detalle">Título</string>
+    <string name="Descripcion_Detalle_TXT">Descripción: </string>
+    <string name="Descripcion_Detalle">Descripcion</string>
+    <string name="Fecha_registro_Detalle_TXT">Fecha de registro: </string>
+    <string name="Fecha_Registro_Detalle">Fecha registro</string>
+    <string name="Fecha_Nota_Detalle_TXT">Fecha de la nota: </string>
+    <string name="Fecha_Nota_Detalle">Fecha nota</string>
+    <string name="Estado_Detalle_TXT">Estado de la nota: </string>
+    <string name="Estado_Detalle">Estado</string>
+
 </resources>

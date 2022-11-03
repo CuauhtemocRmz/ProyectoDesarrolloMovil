@@ -12,6 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda_10B"
         tools:targetApi="31">
+        <activity
+            android:name=".Detalle_Nota"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
         <activity android:name=".ActualizarNota.Actualizar_Nota" />
         <activity android:name=".Perfil.Perfil_Usuario" />
         <activity android:name=".NotasArchivadas.Notas_Archivadas" />
