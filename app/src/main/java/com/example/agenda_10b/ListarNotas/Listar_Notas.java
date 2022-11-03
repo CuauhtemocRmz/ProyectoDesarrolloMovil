@@ -1,11 +1,5 @@
 package com.example.agenda_10b.ListarNotas;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -17,7 +11,19 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.agenda_10b.ActualizarNota.Actualizar_Nota;
 import com.example.agenda_10b.Detalle.Detalle_Nota;
+import com.example.agenda_10b.Objetos.Nota;
+import com.example.agenda_10b.R;
+import com.example.agenda_10b.ViewHolder.ViewHolder_Nota;
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -26,12 +32,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.example.agenda_10b.ActualizarNota.Actualizar_Nota;
-import com.example.agenda_10b.Objetos.Nota;
-import com.example.agenda_10b.R;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.example.agenda_10b.ViewHolder.ViewHolder_Nota;
-import com.firebase.ui.database.FirebaseRecyclerOptions;
 
 import org.jetbrains.annotations.NotNull;
 
