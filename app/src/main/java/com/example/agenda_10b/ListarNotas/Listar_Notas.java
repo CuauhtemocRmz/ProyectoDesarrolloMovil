@@ -17,6 +17,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.agenda_10b.Detalle.Detalle_Nota;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,6 +48,9 @@ public class Listar_Notas extends AppCompatActivity {
 
     Dialog dialog;
 
+    FirebaseAuth auth;
+    FirebaseUser user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +64,9 @@ public class Listar_Notas extends AppCompatActivity {
 
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true);
+
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");
@@ -92,7 +101,29 @@ public class Listar_Notas extends AppCompatActivity {
                 viewHolder_nota.setOnClickListener(new ViewHolder_Nota.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Notas.this, "on item click", Toast.LENGTH_SHORT).show();
+
+                        //Obtener los datos de la nota seleccionada
+                        String id_nota = getItem(position).getId_nota();
+                        String uid_usuario = getItem(position).getUid_usuario();
+                        String correo_usuario = getItem(position).getCorreo_usuario();
+                        String fecha_registro = getItem(position).getFecha_hora_actual();
+                        String titulo = getItem(position).getTitulo();
+                        String descripcion = getItem(position).getDescripcion();
+                        String fecha_nota = getItem(position).getFecha_nota();
+                        String estado = getItem(position).getEstado();
+
+                        //Envio de Datos a la actividad detalle_nota
+                        Intent intent = new Intent(Listar_Notas.this, Detalle_Nota.class);
+                        intent.putExtra("id_nota", id_nota);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("correo_usuario", correo_usuario);
+                        intent.putExtra("fecha_registro", fecha_registro);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("descripcion", descripcion);
+                        intent.putExtra("fecha_nota", fecha_nota);
+                        intent.putExtra("estado", estado);
+                        startActivity(intent);
+
                     }
 
                     @Override

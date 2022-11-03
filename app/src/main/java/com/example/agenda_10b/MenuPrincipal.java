@@ -3,6 +3,7 @@ package com.example.agenda_10b;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.LinearLayoutCompat;
 
 import android.app.Notification;
 import android.content.Intent;
@@ -36,6 +37,8 @@ public class MenuPrincipal extends AppCompatActivity {
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     ProgressBar progressBarDatos;
 
+    LinearLayoutCompat Linear_Nombres , Linear_Correo;
+
     DatabaseReference Usuarios;
 
     @Override
@@ -50,6 +53,10 @@ public class MenuPrincipal extends AppCompatActivity {
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
         CorreoPrincipal = findViewById(R.id.CorreoPrincipal);
         progressBarDatos = findViewById(R.id.ProgressBarDatos);
+
+        Linear_Nombres = findViewById(R.id.Linear_Nombres);
+        Linear_Correo = findViewById(R.id.Linear_Correo);
+
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
 
@@ -135,32 +142,34 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 //Si los datos del usuario existe
-            if (snapshot.exists()){
-                progressBarDatos.setVisibility(View.GONE);
-                //Se mostraran los textview
-                UidPrincipal.setVisibility(View.VISIBLE);
-                NombresPrincipal.setVisibility(View.VISIBLE);
-                CorreoPrincipal.setVisibility(View.VISIBLE);
+                if (snapshot.exists()){
+                    progressBarDatos.setVisibility(View.GONE);
+                    //Se mostraran los textview
+                    //UidPrincipal.setVisibility(View.VISIBLE);
+                    //NombresPrincipal.setVisibility(View.VISIBLE);
+                    //CorreoPrincipal.setVisibility(View.VISIBLE);
+                    Linear_Correo.setVisibility(View.VISIBLE);
+                    Linear_Nombres.setVisibility(View.VISIBLE);
 
-                //obtener datos
-                String uid = ""+snapshot.child("uid").getValue();
-                String nombres = ""+snapshot.child("nombres").getValue();
-                String correo = ""+snapshot.child("correo").getValue();
+                    //obtener datos
+                    String uid = ""+snapshot.child("uid").getValue();
+                    String nombres = ""+snapshot.child("nombres").getValue();
+                    String correo = ""+snapshot.child("correo").getValue();
 
-                //Setear los datos en los respectivos textview
-                UidPrincipal.setText(uid);
-                NombresPrincipal.setText(nombres);
-                CorreoPrincipal.setText(correo);
+                    //Setear los datos en los respectivos textview
+                    UidPrincipal.setText(uid);
+                    NombresPrincipal.setText(nombres);
+                    CorreoPrincipal.setText(correo);
 
-                //habilitar botones del menu
-                AgregarNotas.setEnabled(true);
-                ListarNotas.setEnabled(true);
-                Archivados.setEnabled(true);
-                Perfil.setEnabled(true);
-                AcercaDe.setEnabled(true);
-                CerrarSesion.setEnabled(true);
+                    //habilitar botones del menu
+                    AgregarNotas.setEnabled(true);
+                    ListarNotas.setEnabled(true);
+                    Archivados.setEnabled(true);
+                    Perfil.setEnabled(true);
+                    AcercaDe.setEnabled(true);
+                    CerrarSesion.setEnabled(true);
 
-            }
+                }
             }
 
             @Override
