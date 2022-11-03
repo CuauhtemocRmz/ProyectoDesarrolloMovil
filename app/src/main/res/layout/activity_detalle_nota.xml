@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Detalle.Detalle_Nota">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/id_note_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Id_nota_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                />
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Id_nota_Detalle"
+            android:text="@string/Id_nota_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/uid_note_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Uid_usuario_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Uid_usuario_Detalle"
+            android:text="@string/Uid_usuario_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/correo_usuario_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Correo_usuario_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Correo_usuario_Detalle"
+            android:text="@string/Correo_usuario_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/titulo_nota_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Titulo_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Titulo_Detalle"
+            android:text="@string/Titulo_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/descripcion_nota_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Descripcion_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Descripcion_Detalle"
+            android:text="@string/Descripcion_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/fecha_registro_nota_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Fecha_registro_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Fecha_Registro_Detalle"
+            android:text="@string/Fecha_Registro_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/fecha_nota_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Fecha_Nota_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Fecha_Nota_Detalle"
+            android:text="@string/Fecha_Nota_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <!--- ICONO - TXT -->
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--- ICONOS -->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:src="@drawable/estado_detalle"/>
+
+            <!--- TEXTO -->
+
+            <TextView
+                android:text="@string/Estado_Detalle_TXT"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/worksans"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"/>
+
+
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <!--- DATO -->
+
+        <TextView
+            android:id="@+id/Estado_Detalle"
+            android:text="@string/Estado_Detalle"
+            android:fontFamily="@font/worksans"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</ScrollView>

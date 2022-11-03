@@ -2,6 +2,7 @@ package com.example.agenda_10b.ViewHolder;
 
 import android.content.Context;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -48,6 +49,8 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         //DECLARAR LAS VISTAS
         TextView Id_nota_Item, Uid_Usuario_Item, Correo_usuario_Item, Fecha_hora_registro_Item, Titulo_Item, Descripcion_Item, Fecha_Item, Estado_Item;
 
+        ImageView Tarea_Finalizada_Item, Tarea_No_Finzalizada_Item;
+
         //ESTABLECER LA CONEXIÓN CON EL ITEM
         Id_nota_Item = mView.findViewById(R.id.Id_nota_Item);
         Uid_Usuario_Item = mView.findViewById(R.id.Uid_Usuario_Item);
@@ -58,6 +61,9 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         Fecha_Item = mView.findViewById(R.id.Fecha_Item);
         Estado_Item = mView.findViewById(R.id.Estado_Item);
 
+        Tarea_Finalizada_Item = mView.findViewById(R.id.Tarea_Finalizada_Item);
+        Tarea_No_Finzalizada_Item = mView.findViewById(R.id.Tarea_No_Finalizada_Item);
+
         //SETEAR LA INFORMACION DENTRO DEL ITEM
         Id_nota_Item.setText(id_nota);
         Uid_Usuario_Item.setText(uid_usuario);
@@ -67,6 +73,14 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         Descripcion_Item.setText(descripcion);
         Fecha_Item.setText(fecha_nota);
         Estado_Item.setText(estado);
+
+        //GESTIONAMOS EL COLOR DEL ESTADO
+        if (estado.equals("Finalizado")){
+            Tarea_Finalizada_Item.setVisibility(View.VISIBLE);
+        }else {
+            Tarea_No_Finzalizada_Item.setVisibility(View.VISIBLE);
+        }
+
     }
 
 }
