@@ -254,8 +254,8 @@
                         android:src="@drawable/archivados"/>
 
                     <Button
-                        android:id="@+id/Archivados"
-                        android:text="@string/Archivados"
+                        android:id="@+id/Importantes"
+                        android:text="@string/Importantes"
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
