@@ -61,7 +61,6 @@ public class Listar_Notas extends AppCompatActivity {
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-
         recyclerviewNotas = findViewById(R.id.recyclerviewNotas);
         recyclerviewNotas.setHasFixedSize(true);
 
@@ -71,12 +70,15 @@ public class Listar_Notas extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         BASE_DE_DATOS = firebaseDatabase.getReference("Notas_Publicadas");
         dialog = new Dialog(Listar_Notas.this);
+        dialog = new Dialog(Listar_Notas.this);
         ListarNotasUsuarios();
 
     }
 
     private void ListarNotasUsuarios(){
-        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(BASE_DE_DATOS, Nota.class).build();
+        //consulta
+        Query query = BASE_DE_DATOS.orderByChild("uid_usuario").equalTo(user.getUid());
+        options = new FirebaseRecyclerOptions.Builder<Nota>().setQuery(query, Nota.class).build();
         firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Nota, ViewHolder_Nota>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ViewHolder_Nota viewHolder_nota, int position, @NotNull Nota nota) {
@@ -112,7 +114,7 @@ public class Listar_Notas extends AppCompatActivity {
                         String fecha_nota = getItem(position).getFecha_nota();
                         String estado = getItem(position).getEstado();
 
-                        //Envio de Datos a la actividad detalle_nota
+                        //Enviamos los datos a la siguiente actividad
                         Intent intent = new Intent(Listar_Notas.this, Detalle_Nota.class);
                         intent.putExtra("id_nota", id_nota);
                         intent.putExtra("uid_usuario", uid_usuario);
@@ -123,7 +125,6 @@ public class Listar_Notas extends AppCompatActivity {
                         intent.putExtra("fecha_nota", fecha_nota);
                         intent.putExtra("estado", estado);
                         startActivity(intent);
-
                     }
 
                     @Override
