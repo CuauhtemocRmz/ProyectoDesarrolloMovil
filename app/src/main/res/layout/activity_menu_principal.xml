@@ -34,7 +34,7 @@
                     android:layout_weight="1"
                     android:layout_gravity="center"
                     android:layout_marginStart="2dp"
-                    android:src="@drawable/imagen_perfil"/>
+                    android:src="@drawable/icono_perfil"/>
 
                 <!--DATOS-->
                 <androidx.appcompat.widget.LinearLayoutCompat
@@ -189,7 +189,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/agregar"/>
+                        android:src="@drawable/icono_addnote"/>
 
                     <Button
                         android:id="@+id/AgregarNotas"
@@ -215,7 +215,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/lista"/>
+                        android:src="@drawable/icono_nota"/>
 
                     <Button
                         android:id="@+id/ListarNotas"
@@ -251,7 +251,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/archivados"/>
+                        android:src="@drawable/icono_archivado"/>
 
                     <Button
                         android:id="@+id/Archivados"
@@ -277,7 +277,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/perfil"/>
+                        android:src="@drawable/icono_perfil_view"/>
 
                     <Button
                         android:id="@+id/Perfil"
@@ -313,7 +313,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/acerca_de"/>
+                        android:src="@drawable/icono_acercade"/>
 
                     <Button
                         android:id="@+id/AcercaDe"
@@ -339,7 +339,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/salir"/>
+                        android:src="@drawable/icono_exit"/>
 
                     <Button
                         android:id="@+id/CerrarSesion"
