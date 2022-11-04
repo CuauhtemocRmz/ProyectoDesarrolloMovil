@@ -21,16 +21,18 @@
     <string name="Btn_Logueo">Ingresar</string>
     <string name="UsuarioNuevoTXT">¿No tienes una cuenta?, Registrate</string>
 
-    <!-- MENU PRINCIPAL -->
+    <!--MENÚ PRINCIPAL-->
     <string name="BienvenidoPrincipal">Bienvenido(a)</string>
+    <string name="UidPrincipal"> -- </string>
     <string name="NombresPrincipal"> -- </string>
     <string name="CorreoPrincipal"> -- </string>
-    <string name="UidPrincipal"> -- </string>
+    <string name="EstadoCuentaPrincipal">No verificado</string>
+
     <string name="AgregarNotas">Agregar</string>
     <string name="ListarNotas">Mis Notas</string>
     <string name="Archivados">Archivados</string>
     <string name="Perfil">Perfil</string>
-    <string name="AcercaDe">Acerca DE </string>
+    <string name="AcercaDe">Acerca De</string>
     <string name="CerrarSesion">Salir</string>
 
     <!-- AGREGAR NOTA -->
@@ -63,6 +65,9 @@
     <string name="CD_Eliminar">Eliminar</string>
     <string name="CD_Actualizar">Actualizar</string>
 
+    <!--CUADRO DE DIÁLOGO - CUENTA VERIFICADA-->
+    <string name="CuentaVerificadaTXT">Cuenta verificada</string>
+    <string name="EntendidoVerificado">Entendido</string>
 
     <!-- ACTUALIZAR NOTA -->
     <string name="Id_nota_A">id nota</string>
