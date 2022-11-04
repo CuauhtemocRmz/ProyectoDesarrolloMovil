@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".MenuPrincipal">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -16,7 +16,7 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="200dp"
             app:cardBackgroundColor="@color/teal_700"
             app:cardUseCompatPadding="true"
             android:padding="0.2dp"
@@ -127,6 +127,35 @@
 
                     </androidx.appcompat.widget.LinearLayoutCompat>
 
+                    <!--VERIFICACIÓN-->
+                    <androidx.appcompat.widget.LinearLayoutCompat
+                        android:id="@+id/Linear_Verficacion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <!--ICONO-->
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/verificacion_principal"/>
+
+                        <!---ESTADO-->
+                        <Button
+                            android:id="@+id/EstadoCuentaPrincipal"
+                            android:text="@string/EstadoCuentaPrincipal"
+                            android:textColor="#fff"
+                            android:fontFamily="@font/worksans"
+                            android:textSize="17sp"
+                            android:backgroundTint="#607d8b"
+                            android:layout_marginStart="3dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+
+                    </androidx.appcompat.widget.LinearLayoutCompat>
+
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -135,23 +164,22 @@
 
         </androidx.cardview.widget.CardView>
 
-
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!-- Opcion 1 y 2 -->
+            <!--1 - 2-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:weightSum="2">
 
-                <!-- Opcion 1 -->
+                <!--OPCION 1-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -169,16 +197,15 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
 
 
-
-
                 </androidx.appcompat.widget.LinearLayoutCompat>
-                <!-- Opcion 2 -->
+
+                <!--OPCION 2-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -196,27 +223,25 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
-
-
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!-- Opcion 3 y 4 -->
+            <!--3 - 4-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:weightSum="2">
 
-                <!-- Opcion 3 -->
+                <!--OPCION 3-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -234,14 +259,15 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
+
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!-- Opcion 4 -->
+                <!--OPCION 4-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -259,27 +285,25 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
-
-
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <!-- Opcion 5 y 6 -->
+            <!--5 -6-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
                 android:weightSum="2">
 
-                <!-- Opcion 5 -->
+                <!--OPCION 5-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -297,17 +321,15 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
-
-
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <!-- Opcion 6 -->
+                <!--OPCION 6-->
                 <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_margin="5dp"
@@ -325,10 +347,8 @@
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
+                        android:layout_marginTop="10dp"
                         android:fontFamily="@font/worksans"/>
-
-
 
 
                 </androidx.appcompat.widget.LinearLayoutCompat>
@@ -337,7 +357,6 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </ScrollView>
