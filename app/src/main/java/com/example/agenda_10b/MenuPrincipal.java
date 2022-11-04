@@ -19,7 +19,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.agenda_10b.AgregarNota.Agregar_Nota;
 import com.example.agenda_10b.ListarNotas.Listar_Notas;
-import com.example.agenda_10b.NotasArchivadas.Notas_Archivadas;
+import com.example.agenda_10b.NotasArchivadas.Notas_Importantes;
 import com.example.agenda_10b.Perfil.Perfil_Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,7 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    Button AgregarNotas, ListarNotas, Archivados,Perfil,AcercaDe,CerrarSesion;
+    Button AgregarNotas, ListarNotas, Importantes,Perfil,AcercaDe,CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
@@ -73,7 +73,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
-        Archivados = findViewById(R.id.Archivados);
+        Importantes = findViewById(R.id.Importantes);
         Perfil = findViewById(R.id.Perfil);
         AcercaDe = findViewById(R.id.AcercaDe);
         CerrarSesion = findViewById(R.id.CerrarSesion);
@@ -112,8 +112,8 @@ public class MenuPrincipal extends AppCompatActivity {
             Toast.makeText(MenuPrincipal.this, "Listar Notas", Toast.LENGTH_SHORT).show();
         });
 
-        Archivados.setOnClickListener(view -> {
-            startActivity(new Intent(MenuPrincipal.this, Notas_Archivadas.class));
+        Importantes.setOnClickListener(view -> {
+            startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
             Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
         });
 
@@ -228,7 +228,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     //Habilitar los botones del menú
                     AgregarNotas.setEnabled(true);
                     ListarNotas.setEnabled(true);
-                    Archivados.setEnabled(true);
+                    Importantes.setEnabled(true);
                     Perfil.setEnabled(true);
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);

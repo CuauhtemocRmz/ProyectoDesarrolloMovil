@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 import com.example.agenda_10b.R;
 
-public class Notas_Archivadas extends AppCompatActivity {
+public class Notas_Importantes extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
