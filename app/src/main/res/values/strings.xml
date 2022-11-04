@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Agenda 10B</string>
+    <string name="app_name">AgenD</string>
 
     <!-- MAIN ACTIVITY -->
     <string name="Btn_login">Login</string>
