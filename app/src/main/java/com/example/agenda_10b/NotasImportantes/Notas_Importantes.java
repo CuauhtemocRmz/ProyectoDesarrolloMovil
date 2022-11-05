@@ -1,4 +1,4 @@
-package com.example.agenda_10b.NotasArchivadas;
+package com.example.agenda_10b.NotasImportantes;
 
 import androidx.appcompat.app.AppCompatActivity;
 

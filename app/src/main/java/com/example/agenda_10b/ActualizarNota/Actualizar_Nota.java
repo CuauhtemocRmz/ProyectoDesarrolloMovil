@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -32,16 +33,17 @@ import java.util.Calendar;
 
 public class Actualizar_Nota extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-    TextView Id_nota_A, Uid_Usuario_A,Correo_Usuario_A, Fecha_registro_A, Fecha_A, Estado_A, Estado_nuevo;
+    TextView Id_nota_A, Uid_Usuario_A, Correo_usuario_A, Fecha_registro_A , Fecha_A, Estado_A, Estado_nuevo;
     EditText Titulo_A, Descripcion_A;
     Button Btn_Calendario_A;
 
-    String id_nota_R, Uid_Usuario_R, Correo_Usuario_R, Fecha_registro_R, Titulo_R, Descripcion_R, Fecha_R, Estado_R;
+    //DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE ACTIVIDAD ANTERIOR
+    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
     ImageView Tarea_Finalizada, Tarea_No_Finalizada;
 
     Spinner Spinner_estado;
-    int dia,mes,anio;
+    int dia, mes , anio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +55,11 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        Inicializarvistas();
+        InicializarVistas();
         RecuperarDatos();
         SetearDatos();
         ComprobarEstadoNota();
-        Spinner_estado();
+        Spinner_Estado();
 
         Btn_Calendario_A.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,17 +69,17 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         });
     }
 
-    private void Inicializarvistas(){
-
+    private void InicializarVistas(){
         Id_nota_A = findViewById(R.id.Id_nota_A);
         Uid_Usuario_A = findViewById(R.id.Uid_Usuario_A);
-        Correo_Usuario_A = findViewById(R.id.Correo_Usuario_A);
+        Correo_usuario_A = findViewById(R.id.Correo_Usuario_A);
         Fecha_registro_A = findViewById(R.id.Fecha_registro_A);
         Fecha_A = findViewById(R.id.Fecha_A);
         Estado_A = findViewById(R.id.Estado_A);
         Titulo_A = findViewById(R.id.Titulo_A);
         Descripcion_A = findViewById(R.id.Descripcion_A);
         Btn_Calendario_A = findViewById(R.id.Btn_Calendario_A);
+
         Tarea_Finalizada = findViewById(R.id.Tarea_Finalizada);
         Tarea_No_Finalizada = findViewById(R.id.Tarea_No_Finalizada);
 
@@ -86,42 +88,42 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     }
 
     private void RecuperarDatos(){
-
         Bundle intent = getIntent().getExtras();
 
         id_nota_R = intent.getString("id_nota");
-        Uid_Usuario_R = intent.getString("uid_usuario");
-        Correo_Usuario_R = intent.getString("correo_usuario");
-        Fecha_registro_R = intent.getString("fecha_registro");
-        Titulo_R = intent.getString("titulo");
-        Descripcion_R = intent.getString("descripcion");
-        Fecha_R = intent.getString("fecha_nota");
-        Estado_R = intent.getString("estado");
+        uid_usuario_R = intent.getString("uid_usuario");
+        correo_usuario_R = intent.getString("correo_usuario");
+        fecha_registro_R = intent.getString("fecha_registro");
+        titulo_R = intent.getString("titulo");
+        descripcion_R = intent.getString("descripcion");
+        fecha_R = intent.getString("fecha_nota");
+        estado_R = intent.getString("estado");
+
 
 
     }
 
     private void SetearDatos(){
         Id_nota_A.setText(id_nota_R);
-        Uid_Usuario_A.setText(Uid_Usuario_R);
-        Correo_Usuario_A.setText(Correo_Usuario_R);
-        Fecha_registro_A.setText(Fecha_registro_R);
-        Fecha_A.setText(Titulo_R);
-        Estado_A.setText(Descripcion_R);
-        Titulo_A.setText(Fecha_R);
-        Estado_A.setText(Estado_R);
+        Uid_Usuario_A.setText(uid_usuario_R);
+        Correo_usuario_A.setText(correo_usuario_R);
+        Fecha_registro_A.setText(fecha_registro_R);
+        Titulo_A.setText(titulo_R);
+        Descripcion_A.setText(descripcion_R);
+        Fecha_A.setText(fecha_R);
+        Estado_A.setText(estado_R);
+
     }
 
     private void ComprobarEstadoNota(){
         String estado_nota = Estado_A.getText().toString();
 
-        if(estado_nota.equals("No finalizado")){
+        if (estado_nota.equals("No finalizado")){
             Tarea_No_Finalizada.setVisibility(View.VISIBLE);
         }
-        if(estado_nota.equals("Finalizado")){
+        if (estado_nota.equals("Finalizado")){
             Tarea_Finalizada.setVisibility(View.VISIBLE);
         }
-
     }
 
     private void SeleccionarFecha(){
@@ -131,51 +133,55 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
         mes = calendario.get(Calendar.MONTH);
         anio = calendario.get(Calendar.YEAR);
 
-        DatePickerDialog datePickerDialog = new DatePickerDialog(Actualizar_Nota.this, (datePicker, AnioSeleccionado, MesSeleccionado, DiaSeleccionado) -> {
+        DatePickerDialog datePickerDialog = new DatePickerDialog(Actualizar_Nota.this, new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int AnioSeleccionado, int MesSeleccionado, int DiaSeleccionado) {
 
-            String diaFormateado, mesFormateado;
+                String diaFormateado, mesFormateado;
 
-            //OBTENER DIA
-            if (DiaSeleccionado < 10){
-                diaFormateado = "0"+String.valueOf(DiaSeleccionado);
-                // Antes: 9/11/2022 -  Ahora 09/11/2022
-            }else {
-                diaFormateado = String.valueOf(DiaSeleccionado);
-                //Ejemplo 13/08/2022
+                //OBTENER DIA
+                if (DiaSeleccionado < 10){
+                    diaFormateado = "0"+String.valueOf(DiaSeleccionado);
+                    // Antes: 9/11/2022 -  Ahora 09/11/2022
+                }else {
+                    diaFormateado = String.valueOf(DiaSeleccionado);
+                    //Ejemplo 13/08/2022
+                }
+
+                //OBTENER EL MES
+                int Mes = MesSeleccionado + 1;
+
+                if (Mes < 10){
+                    mesFormateado = "0"+String.valueOf(Mes);
+                    // Antes: 09/8/2022 -  Ahora 09/08/2022
+                }else {
+                    mesFormateado = String.valueOf(Mes);
+                    //Ejemplo 13/10/2022 - 13/11/2022 - 13/12/2022
+
+                }
+
+                //Setear fecha en TextView
+                Fecha_A.setText(diaFormateado + "/" + mesFormateado + "/"+ AnioSeleccionado);
+
             }
-
-            //OBTENER EL MES
-            int Mes = MesSeleccionado + 1;
-
-            if (Mes < 10){
-                mesFormateado = "0"+String.valueOf(Mes);
-                // Antes: 09/8/2022 -  Ahora 09/08/2022
-            }else {
-                mesFormateado = String.valueOf(Mes);
-                //Ejemplo 13/10/2022 - 13/11/2022 - 13/12/2022
-
-            }
-
-            //Setear fecha en TextView
-            Fecha_A.setText(diaFormateado + "/" + mesFormateado + "/"+ AnioSeleccionado);
-
         }
                 ,anio,mes,dia);
         datePickerDialog.show();
     }
 
-
-    private void Spinner_estado(){
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.Estados_nota, android.R.layout.simple_spinner_item);
+    private void Spinner_Estado(){
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.Estados_nota, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Spinner_estado.setAdapter(adapter);
         Spinner_estado.setOnItemSelectedListener(this);
+
     }
 
-    private void Actualizar_NotaBD(){
+    private void ActualizarNotaBD(){
         String tituloActualizar = Titulo_A.getText().toString();
         String descripcionActualizar = Descripcion_A.getText().toString();
-        String fechaActualziar = Fecha_A.getText().toString();
+        String fechaActualizar = Fecha_A.getText().toString();
         String estadoActualizar = Estado_nuevo.getText().toString();
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
@@ -189,10 +195,11 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
                 for (DataSnapshot ds : snapshot.getChildren()){
                     ds.getRef().child("titulo").setValue(tituloActualizar);
                     ds.getRef().child("descripcion").setValue(descripcionActualizar);
-                    ds.getRef().child("fecha_nota").setValue(fechaActualziar);
+                    ds.getRef().child("fecha_nota").setValue(fechaActualizar);
                     ds.getRef().child("estado").setValue(estadoActualizar);
                 }
-                Toast.makeText(Actualizar_Nota.this, "Nota actualizada con exito", Toast.LENGTH_SHORT).show();
+
+                Toast.makeText(Actualizar_Nota.this, "Nota actualizada con éxito", Toast.LENGTH_SHORT).show();
                 onBackPressed();
 
             }
@@ -208,6 +215,7 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
         String ESTADO_ACTUAL = Estado_A.getText().toString();
+
         String Posicion_1 = adapterView.getItemAtPosition(1).toString();
 
         String estado_seleccionado = adapterView.getItemAtPosition(i).toString();
@@ -215,7 +223,6 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
 
         if (ESTADO_ACTUAL.equals("Finalizado")){
             Estado_nuevo.setText(Posicion_1);
-
         }
 
     }
@@ -234,11 +241,9 @@ public class Actualizar_Nota extends AppCompatActivity implements AdapterView.On
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.Actualizar_Nota_BD:
-                Actualizar_NotaBD();
-                //Toast.makeText(this, "Nota Actualizada", Toast.LENGTH_SHORT).show();
-                break;
+        if (item.getItemId() == R.id.Actualizar_Nota_BD) {
+            ActualizarNotaBD();
+            //Toast.makeText(this, "Nota actualizada", Toast.LENGTH_SHORT).show();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -9,7 +9,7 @@
     android:layout_gravity="center">
 
     <TextView
-        android:text="@string/ElijeOpcionTXT"
+        android:text="@string/ElijaOpcionTXT"
         android:textSize="28sp"
         android:gravity="center"
         android:textStyle="bold"

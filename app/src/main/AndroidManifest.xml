@@ -21,7 +21,7 @@
         </activity>
         <activity android:name=".ActualizarNota.Actualizar_Nota" />
         <activity android:name=".Perfil.Perfil_Usuario" />
-        <activity android:name=".NotasArchivadas.Notas_Archivadas" />
+        <activity android:name=".NotasImportantes.Notas_Importantes" />
         <activity android:name=".ListarNotas.Listar_Notas" />
         <activity android:name=".AgregarNota.Agregar_Nota" />
         <activity

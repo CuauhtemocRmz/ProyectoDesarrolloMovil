@@ -24,7 +24,7 @@ import java.util.HashMap;
 
 public class Detalle_Nota extends AppCompatActivity {
 
-    FirebaseAuth FirebaseAuth;
+    FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
     Button Boton_Importante;
@@ -33,7 +33,7 @@ public class Detalle_Nota extends AppCompatActivity {
             Fecha_Registro_Detalle, Fecha_Nota_Detalle, Estado_Detalle;
 
     //DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE ACTIVIDAD ANTERIOR
-    String id_nota_R, Uid_Usuario_R, Correo_Usuario_R, Fecha_registro_R, Titulo_R, Descripcion_R, Fecha_R, Estado_R;
+    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
 
     boolean ComprobarNotaImportante = false;
 
@@ -44,29 +44,28 @@ public class Detalle_Nota extends AppCompatActivity {
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;
-        actionBar.setTitle("Detalle de Nota");
+        actionBar.setTitle("Detalle de nota");
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.setDisplayShowHomeEnabled(true);
 
-
-        Inicializarvistas();
+        InicializarVistas();
         RecuperarDatos();
         SetearDatosRecuperados();
-        Verificar_Nota_Importantes();
+        VerificarNotaImportante();
 
         Boton_Importante.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(ComprobarNotaImportante){
-                    Eliminar_Nota_Importantes();
-                }else{
+                if (ComprobarNotaImportante){
+                    Eliminar_Nota_Importante();
+                }else {
                     Agregar_Notas_Importantes();
                 }
             }
         });
     }
 
-    private void Inicializarvistas(){
+    private void InicializarVistas(){
         Id_nota_Detalle = findViewById(R.id.Id_nota_Detalle);
         Uid_usuario_Detalle = findViewById(R.id.Uid_usuario_Detalle);
         Correo_usuario_Detalle = findViewById(R.id.Correo_usuario_Detalle);
@@ -77,35 +76,33 @@ public class Detalle_Nota extends AppCompatActivity {
         Estado_Detalle = findViewById(R.id.Estado_Detalle);
         Boton_Importante = findViewById(R.id.Boton_Importante);
 
-        FirebaseAuth = FirebaseAuth.getInstance();
-        user = FirebaseAuth.getCurrentUser();
+        firebaseAuth = FirebaseAuth.getInstance();
+        user = firebaseAuth.getCurrentUser();
     }
 
     private void RecuperarDatos(){
-
         Bundle intent = getIntent().getExtras();
 
         id_nota_R = intent.getString("id_nota");
-        Uid_Usuario_R = intent.getString("uid_usuario");
-        Correo_Usuario_R = intent.getString("correo_usuario");
-        Fecha_registro_R = intent.getString("fecha_registro");
-        Titulo_R = intent.getString("titulo");
-        Descripcion_R = intent.getString("descripcion");
-        Fecha_R = intent.getString("fecha_nota");
-        Estado_R = intent.getString("estado");
-
+        uid_usuario_R = intent.getString("uid_usuario");
+        correo_usuario_R = intent.getString("correo_usuario");
+        fecha_registro_R = intent.getString("fecha_registro");
+        titulo_R = intent.getString("titulo");
+        descripcion_R = intent.getString("descripcion");
+        fecha_R = intent.getString("fecha_nota");
+        estado_R = intent.getString("estado");
 
     }
 
     private void SetearDatosRecuperados(){
         Id_nota_Detalle.setText(id_nota_R);
-        Uid_usuario_Detalle.setText(Uid_Usuario_R);
-        Correo_usuario_Detalle.setText(Correo_Usuario_R);
-        Fecha_Registro_Detalle.setText(Fecha_registro_R);
-        Titulo_Detalle.setText(Titulo_R);
-        Descripcion_Detalle.setText(Descripcion_R);
-        Fecha_Nota_Detalle.setText(Fecha_R);
-        Estado_Detalle.setText(Estado_R);
+        Uid_usuario_Detalle.setText(uid_usuario_R);
+        Correo_usuario_Detalle.setText(correo_usuario_R);
+        Fecha_Registro_Detalle.setText(fecha_registro_R);
+        Titulo_Detalle.setText(titulo_R);
+        Descripcion_Detalle.setText(descripcion_R);
+        Fecha_Nota_Detalle.setText(fecha_R);
+        Estado_Detalle.setText(estado_R);
     }
 
     private void Agregar_Notas_Importantes(){
@@ -117,98 +114,105 @@ public class Detalle_Nota extends AppCompatActivity {
             Bundle intent = getIntent().getExtras();
 
             id_nota_R = intent.getString("id_nota");
-            Uid_Usuario_R = intent.getString("uid_usuario");
-            Correo_Usuario_R = intent.getString("correo_usuario");
-            Fecha_registro_R = intent.getString("fecha_registro");
-            Titulo_R = intent.getString("titulo");
-            Descripcion_R = intent.getString("descripcion");
-            Fecha_R = intent.getString("fecha_nota");
-            Estado_R = intent.getString("estado");
+            uid_usuario_R = intent.getString("uid_usuario");
+            correo_usuario_R = intent.getString("correo_usuario");
+            fecha_registro_R = intent.getString("fecha_registro");
+            titulo_R = intent.getString("titulo");
+            descripcion_R = intent.getString("descripcion");
+            fecha_R = intent.getString("fecha_nota");
+            estado_R = intent.getString("estado");
 
-            String identificador_nota_importante = Uid_Usuario_R+Titulo_R;
+            String identificador_nota_importante = uid_usuario_R+titulo_R;
 
             HashMap<String , String> Nota_Importante = new HashMap<>();
             Nota_Importante.put("id_nota", id_nota_R);
-            Nota_Importante.put("uid_usuario", Uid_Usuario_R);
-            Nota_Importante.put("correo_usuario", Correo_Usuario_R);
-            Nota_Importante.put("fecha_registro", Fecha_registro_R);
-            Nota_Importante.put("titulo", Titulo_R);
-            Nota_Importante.put("descripcion", Descripcion_R);
-            Nota_Importante.put("fecha_nota", Fecha_R);
-            Nota_Importante.put("estado", Estado_R);
+            Nota_Importante.put("uid_usuario", uid_usuario_R);
+            Nota_Importante.put("correo_usuario", correo_usuario_R);
+            Nota_Importante.put("fecha_hora_actual", fecha_registro_R);
+            Nota_Importante.put("titulo", titulo_R);
+            Nota_Importante.put("descripcion", descripcion_R);
+            Nota_Importante.put("fecha_nota", fecha_R);
+            Nota_Importante.put("estado", estado_R);
             Nota_Importante.put("id_nota_importante", identificador_nota_importante);
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(FirebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante).setValue(Nota_Importante).addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Toast.makeText(Detalle_Nota.this, "Se ha añadido a notas importantes", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+                    .setValue(Nota_Importante)
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Detalle_Nota.this, "Se ha añadido a notas importantes", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
         }
     }
 
-    private  void Eliminar_Nota_Importantes(){
+    private void Eliminar_Nota_Importante(){
         if (user == null){
             Toast.makeText(Detalle_Nota.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         }else {
             Bundle intent = getIntent().getExtras();
-            id_nota_R = intent.getString("id_nota");
-            Titulo_R = intent.getString("titulo");
+            uid_usuario_R = intent.getString("uid_usuario");
+            titulo_R = intent.getString("titulo");
 
-            String identificador_nota_importante = Uid_Usuario_R+Titulo_R;
+            String identificador_nota_importante = uid_usuario_R+titulo_R;
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(FirebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante).removeValue().addOnSuccessListener(new OnSuccessListener<Void>() {
-                @Override
-                public void onSuccess(Void unused) {
-                    Toast.makeText(Detalle_Nota.this, "La nota ya no importante", Toast.LENGTH_SHORT).show();
-                }
-            }).addOnFailureListener(new OnFailureListener() {
-                @Override
-                public void onFailure(@NonNull Exception e) {
-                    Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                }
-            });
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+                    .removeValue()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void unused) {
+                            Toast.makeText(Detalle_Nota.this, "La nota ya no es importante", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
         }
     }
 
-    private void Verificar_Nota_Importantes(){
+    private void VerificarNotaImportante(){
         if (user == null){
             Toast.makeText(Detalle_Nota.this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
         }else {
             Bundle intent = getIntent().getExtras();
-            id_nota_R = intent.getString("id_nota");
-            Titulo_R = intent.getString("titulo");
+            uid_usuario_R = intent.getString("uid_usuario");
+            titulo_R = intent.getString("titulo");
 
-            String identificador_nota_importante = Uid_Usuario_R+Titulo_R;
+            String identificador_nota_importante = uid_usuario_R+titulo_R;
 
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
-            reference.child(FirebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante).addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    ComprobarNotaImportante = snapshot.exists();
-                    if (ComprobarNotaImportante){
-                        String importante = "Importante";
-                        Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_nota_importante, 0, 0);
-                        Boton_Importante.setText(importante);
-                    }else{
-                        String no_importante = "No importante";
-                        Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_nota_no_importante, 0, 0);
-                        Boton_Importante.setText(no_importante);
-                    }
-                }
+            reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(identificador_nota_importante)
+                    .addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                            ComprobarNotaImportante = snapshot.exists();
+                            if (ComprobarNotaImportante){
+                                String importante = "Importante";
+                                Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_nota_importante, 0 , 0);
+                                Boton_Importante.setText(importante);
+                            }else {
+                                String no_importante = "No importante";
+                                Boton_Importante.setCompoundDrawablesRelativeWithIntrinsicBounds(0, R.drawable.icono_nota_no_importante, 0 , 0);
+                                Boton_Importante.setText(no_importante);
+                            }
+                        }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
 
-                }
-            });
+                        }
+                    });
+
         }
     }
 

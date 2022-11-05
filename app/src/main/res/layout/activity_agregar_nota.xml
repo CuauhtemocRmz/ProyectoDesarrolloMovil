@@ -54,27 +54,7 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <!--ICONO - TEXTVIEW -->
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/fecha_hora_registro"/>
-
-            <TextView
-                android:text="@string/Fecha_hora_actual_TXT"
-                android:textSize="20sp"
-                android:layout_marginStart="10dp"
-                android:fontFamily="@font/worksans"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-            </TextView>
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <!--FECHA Y HORA ACTUAL DEL DISPOSITIVO-->
         <TextView

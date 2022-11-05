@@ -19,7 +19,7 @@ import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.agenda_10b.AgregarNota.Agregar_Nota;
 import com.example.agenda_10b.ListarNotas.Listar_Notas;
-import com.example.agenda_10b.NotasArchivadas.Notas_Importantes;
+import com.example.agenda_10b.NotasImportantes.Notas_Importantes;
 import com.example.agenda_10b.Perfil.Perfil_Usuario;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
