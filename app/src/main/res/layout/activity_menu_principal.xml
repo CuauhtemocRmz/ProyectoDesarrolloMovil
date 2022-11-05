@@ -215,7 +215,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/icono_nota"/>
+                        android:src="@drawable/icono_note"/>
 
                     <Button
                         android:id="@+id/ListarNotas"
@@ -251,7 +251,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="70dp"
                         android:layout_height="70dp"
-                        android:src="@drawable/icono_archivado"/>
+                        android:src="@drawable/icono_important"/>
 
                     <Button
                         android:id="@+id/Importantes"
