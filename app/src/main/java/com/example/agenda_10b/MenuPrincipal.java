@@ -50,7 +50,7 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Agenda Online");
+        actionBar.setTitle("AgenD");
 
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
@@ -109,12 +109,12 @@ public class MenuPrincipal extends AppCompatActivity {
 
         ListarNotas.setOnClickListener(view -> {
             startActivity(new Intent(MenuPrincipal.this, Listar_Notas.class));
-            Toast.makeText(MenuPrincipal.this, "Listar Notas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MenuPrincipal.this, "Notas", Toast.LENGTH_SHORT).show();
         });
 
         Importantes.setOnClickListener(view -> {
             startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
-            Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MenuPrincipal.this, "Notas Importantes", Toast.LENGTH_SHORT).show();
         });
 
         Perfil.setOnClickListener(view -> {
