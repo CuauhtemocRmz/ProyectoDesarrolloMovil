@@ -50,7 +50,7 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Agenda Online");
+        actionBar.setTitle("");
 
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
