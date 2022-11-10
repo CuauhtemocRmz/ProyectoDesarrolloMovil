@@ -30,7 +30,7 @@
 
        <Button
            android:id="@+id/Btn_login"
-           android:text="@string/Btn_Logueo"
+           android:text="@string/Btn_Login"
            android:layout_marginTop="10dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
