@@ -62,7 +62,7 @@
                 android:layout_height="wrap_content"
                 android:drawableStart="@drawable/icono_password"
                 android:fontFamily="@font/worksans"
-                android:hint="@string/ContraseñaLogin"
+                android:hint="@string/PassLogin"
                 android:inputType="textPassword"
                 android:padding="28dp" />
 
@@ -75,7 +75,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:fontFamily="@font/worksans"
-            android:text="@string/Btn_Logueo" />
+            android:text="@string/Btn_Logeo" />
 
         <TextView
             android:id="@+id/UsuarioNuevoTXT"
