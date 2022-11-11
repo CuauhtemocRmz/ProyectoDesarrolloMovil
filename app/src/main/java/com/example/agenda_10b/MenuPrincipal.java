@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
 import com.example.agenda_10b.AgregarNota.Agregar_Nota;
+import com.example.agenda_10b.Contactos.Listar_Contactos;
 import com.example.agenda_10b.ListarNotas.Listar_Notas;
 import com.example.agenda_10b.NotasImportantes.Notas_Importantes;
 import com.example.agenda_10b.Perfil.Perfil_Usuario;
@@ -138,7 +139,10 @@ public class MenuPrincipal extends AppCompatActivity {
         Contactos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+                String uid_usuario = UidPrincipal.getText().toString();
+                Intent intent = new Intent(MenuPrincipal.this, Listar_Contactos.class);
+                intent.putExtra("Uid", uid_usuario);
+                startActivity(intent);
             }
         });
 
