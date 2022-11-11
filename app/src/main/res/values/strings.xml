@@ -54,6 +54,7 @@
     <string name="Vaciar_Todas_Las_Notas">Vaciar todas las notas</string>
     <string name="Perfil_usuario">Perfil del usuario</string>
     <string name="Actualizar_pass">Actualizar pass</string>
+    <string name="Agregar_Contacto">Agregar Contacto</string>
 
 
     <!--ITEM NOTA-->
@@ -170,5 +171,15 @@
     <string name="EtNuevoPass">Nueva contraseña</string>
     <string name="EtRNuevoPass">Repetir nueva contraseña</string>
     <string name="BtnActualizarPass">Actualizar</string>
+
+    <!--- AGREGAR CONTACTO -->
+    <string name="Uid_Usuario_C">Mi UID</string>
+    <string name="Nombres_C">Nombres Contacto</string>
+    <string name="Apellidos_C">Apellidos Contacto</string>
+    <string name="Correo_C">Correo Electronico</string>
+    <string name="Telefono_C">Telefono</string>
+    <string name="Edad_C">Edad</string>
+    <string name="Direccion_C">Direccion</string>
+    <string name="Btn_Guardar_Contacto">Guardar Contacto</string>
 
 </resources>
