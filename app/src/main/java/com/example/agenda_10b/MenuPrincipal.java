@@ -3,9 +3,13 @@ package com.example.agenda_10b;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -21,6 +25,8 @@ import com.example.agenda_10b.AgregarNota.Agregar_Nota;
 import com.example.agenda_10b.ListarNotas.Listar_Notas;
 import com.example.agenda_10b.NotasImportantes.Notas_Importantes;
 import com.example.agenda_10b.Perfil.Perfil_Usuario;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -31,7 +37,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MenuPrincipal extends AppCompatActivity {
 
-    Button AgregarNotas, ListarNotas, Importantes,Perfil,AcercaDe,CerrarSesion;
+    Button AgregarNotas, ListarNotas, Importantes,Contactos,AcercaDe,CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
@@ -74,7 +80,7 @@ public class MenuPrincipal extends AppCompatActivity {
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
         Importantes = findViewById(R.id.Importantes);
-        Perfil = findViewById(R.id.Perfil);
+        Contactos = findViewById(R.id.Contactos);
         AcercaDe = findViewById(R.id.AcercaDe);
         CerrarSesion = findViewById(R.id.CerrarSesion);
 
@@ -82,73 +88,113 @@ public class MenuPrincipal extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
 
-        EstadoCuentaPrincipal.setOnClickListener(view -> {
-            if (user.isEmailVerified()){
-                //Si la cuenta está verificada
-                //Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
-                AnimacionCuentaVerificada();
-            }else {
-                //Si la cuenta no está verificada
-                VerificarCuentaCorreo();
+        EstadoCuentaPrincipal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (user.isEmailVerified()){
+                    //Si la cuenta está verificada
+                    //Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
+                    AnimacionCuentaVerificada();
+                }else {
+                    //Si la cuenta no está verificada
+                    VerificarCuentaCorreo();
+                }
             }
         });
 
-        AgregarNotas.setOnClickListener(view -> {
+        AgregarNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-            /*Obtenemos la información de los TextView*/
-            String uid_usuario = UidPrincipal.getText().toString();
-            String correo_usuario = CorreoPrincipal.getText().toString();
+                /*Obtenemos la información de los TextView*/
+                String uid_usuario = UidPrincipal.getText().toString();
+                String correo_usuario = CorreoPrincipal.getText().toString();
 
-            /*Pasamos datos a la siguiente actividad*/
-            Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
-            intent.putExtra("Uid", uid_usuario);
-            intent.putExtra("Correo", correo_usuario);
-            startActivity(intent);
+                /*Pasamos datos a la siguiente actividad*/
+                Intent intent = new Intent(MenuPrincipal.this, Agregar_Nota.class);
+                intent.putExtra("Uid", uid_usuario);
+                intent.putExtra("Correo", correo_usuario);
+                startActivity(intent);
 
+            }
         });
 
-        ListarNotas.setOnClickListener(view -> {
-            startActivity(new Intent(MenuPrincipal.this, Listar_Notas.class));
-            Toast.makeText(MenuPrincipal.this, "Listar Notas", Toast.LENGTH_SHORT).show();
+        ListarNotas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuPrincipal.this, Listar_Notas.class));
+                Toast.makeText(MenuPrincipal.this, "Listar Notas", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        Importantes.setOnClickListener(view -> {
-            startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
-            Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
+        Importantes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
+                Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        Perfil.setOnClickListener(view -> {
-            startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
-            Toast.makeText(MenuPrincipal.this, "Perfil Usuario", Toast.LENGTH_SHORT).show();
+        Contactos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MenuPrincipal.this, "Contactos", Toast.LENGTH_SHORT).show();
+            }
         });
 
-        AcercaDe.setOnClickListener(view -> Toast.makeText(MenuPrincipal.this, "Acerca De", Toast.LENGTH_SHORT).show());
+        AcercaDe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MenuPrincipal.this, "Acerca De", Toast.LENGTH_SHORT).show();
+            }
+        });
 
-        CerrarSesion.setOnClickListener(view -> SalirAplicacion());
+        CerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SalirAplicacion();
+            }
+        });
     }
 
     private void VerificarCuentaCorreo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Verificar cuenta")
-                .setMessage("¿Quieres enviar la verificación de correo electrónico al correo:  "
-                        +user.getEmail()+"?")
-                .setPositiveButton("Enviar", (dialogInterface, i) -> EnviarCorreoAVerificacion())
-                .setNegativeButton("Cancelar", (dialogInterface, i) -> Toast.makeText(MenuPrincipal.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show()).show();
+        builder.setTitle("verificar cuenta")
+                .setMessage("¿Estás seguro(a) de enviar instrucciones de verificación a su correo electrónico? "
+                        +user.getEmail())
+                .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        EnviarCorreoAVerificacion();
+                    }
+                })
+                .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MenuPrincipal.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();
+                    }
+                }).show();
     }
 
     private void EnviarCorreoAVerificacion() {
-        progressDialog.setMessage("Enviando correo de verificación a su correo electrónico "+ user.getEmail());
+        progressDialog.setMessage("Enviando instrucciones de verificación a su correo electrónico "+ user.getEmail());
         progressDialog.show();
 
         user.sendEmailVerification()
-                .addOnSuccessListener(unused -> {
-                    //Envío fue exitoso
-                    progressDialog.dismiss();
-                    Toast.makeText(MenuPrincipal.this, "Correo enviado, revise su bandeja de entrada " +user.getEmail(), Toast.LENGTH_SHORT).show();
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        //Envío fue exitoso
+                        progressDialog.dismiss();
+                        Toast.makeText(MenuPrincipal.this, "Instrucciones enviadas, revise su bandeja " +user.getEmail(), Toast.LENGTH_SHORT).show();
+                    }
                 })
-                .addOnFailureListener(e -> {
-                    //Falló el envío
-                    Toast.makeText(MenuPrincipal.this, "Falló debido a: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        //Falló el envío
+                        Toast.makeText(MenuPrincipal.this, "Falló debido a: "+e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 });
 
     }
@@ -172,7 +218,12 @@ public class MenuPrincipal extends AppCompatActivity {
 
         EntendidoVerificado = dialog_cuenta_verificada.findViewById(R.id.EntendidoVerificado);
 
-        EntendidoVerificado.setOnClickListener(view -> dialog_cuenta_verificada.dismiss());
+        EntendidoVerificado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog_cuenta_verificada.dismiss();
+            }
+        });
 
         dialog_cuenta_verificada.show();
         dialog_cuenta_verificada.setCanceledOnTouchOutside(false);
@@ -229,7 +280,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     AgregarNotas.setEnabled(true);
                     ListarNotas.setEnabled(true);
                     Importantes.setEnabled(true);
-                    Perfil.setEnabled(true);
+                    Contactos.setEnabled(true);
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);
 
@@ -241,6 +292,21 @@ public class MenuPrincipal extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_principal, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == R.id.Perfil_usuario){
+            startActivity(new Intent(MenuPrincipal.this, Perfil_Usuario.class));
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     private void SalirAplicacion() {

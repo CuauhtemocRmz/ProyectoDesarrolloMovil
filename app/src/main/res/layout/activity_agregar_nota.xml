@@ -26,7 +26,7 @@
         <!--CORREO DEL USUARIO-->
         <TextView
             android:id="@+id/Correo_Usuario"
-            android:hint="@string/Correo_Usuario"
+            android:hint="@string/Correo_usuario"
             android:textSize="18sp"
             android:visibility="gone"
             android:fontFamily="@font/worksans"

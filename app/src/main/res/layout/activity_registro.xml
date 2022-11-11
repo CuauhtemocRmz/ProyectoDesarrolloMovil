@@ -73,7 +73,7 @@
 
             <EditText
                 android:id="@+id/ContraseñaEt"
-                android:hint="@string/ContraseñaEt"
+                android:hint="@string/ContaseñaEt"
                 android:inputType="textPassword"
                 android:padding="20dp"
                 android:drawableStart="@drawable/icono_password"

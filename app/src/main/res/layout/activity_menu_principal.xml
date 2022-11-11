@@ -280,8 +280,8 @@
                         android:src="@drawable/icono_perfil_view"/>
 
                     <Button
-                        android:id="@+id/Perfil"
-                        android:text="@string/Perfil"
+                        android:id="@+id/Contactos"
+                        android:text="@string/Contactos"
                         android:enabled="false"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
