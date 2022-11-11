@@ -53,6 +53,7 @@
     <string name="Actualizar_Nota_BD">Actualizar</string>
     <string name="Vaciar_Todas_Las_Notas">Vaciar todas las notas</string>
 
+
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
     <string name="Uid_Usuario_Item"> Uid del usuario</string>
@@ -72,6 +73,16 @@
     <string name="Descripcion_Item_I"> Descripcion</string>
     <string name="Fecha_Item_I"> 00/00/0000 </string>
     <string name="Estado_Item_I"> No finalizado</string>
+
+    <!-- ITEM CONTACTO -->
+    <string name="Id_c_Item">Id contacto</string>
+    <string name="Uid_c_Item"> Uid usuario</string>
+    <string name="nombres_c_Item">Nombres</string>
+    <string name="apellidos_c_Item">Apellidos</string>
+    <string name="correo_c_Item">Correo</string>
+    <string name="telefono_c_Item">Telefono</string>
+    <string name="edad_c_Item">Edad</string>
+    <string name="direccion_c_Item">Direccion</string>
 
     <!--CUADRO DE DIALOGO OPCIONES-->
     <string name="ElijaOpcionTXT">Elija una opción</string>
