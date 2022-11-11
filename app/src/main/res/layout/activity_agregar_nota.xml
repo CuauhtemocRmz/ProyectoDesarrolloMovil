@@ -48,6 +48,7 @@
                 android:text="@string/Fecha_hora_actual_TXT"
                 android:textSize="20sp"
                 android:layout_marginStart="10dp"
+                android:textColor="@color/ColorTitulos"
                 android:fontFamily="@font/worksans"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
