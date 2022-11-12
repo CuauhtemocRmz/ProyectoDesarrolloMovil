@@ -182,4 +182,16 @@
     <string name="Direccion_C">Direccion</string>
     <string name="Btn_Guardar_Contacto">Guardar Contacto</string>
 
+    <!--- DETALLE CONTACTO -->
+    <string name="Id_C_D">Id</string>
+    <string name="Uid_Usuario_D">Uid Usuario</string>
+    <string name="Nombre_C_D">Nombres</string>
+    <string name="Apellidos_C_D">Apellidos</string>
+    <string name="Correo_C_D">Correo electronico</string>
+    <string name="Telefono_C_D">Telefono</string>
+    <string name="Edad_C_D">Edad</string>
+    <string name="Dirreccion_C_D">Dirreccion</string>
+    <string name="Btn_Actualizar_C">Actualizar</string>
+
+
 </resources>
