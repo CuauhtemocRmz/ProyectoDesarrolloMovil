@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -14,15 +15,14 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
 
     View mView;
 
-    private ViewHolder_Nota.ClickListener mClickListener;
+    private ViewHolderContacto.ClickListener mClickListener;
 
-    public interface ClickListener {
+    public interface ClickListener{
         void onItemClick(View view, int position); /*SE EJECUTA AL PRESIONAR EN EL ITEM*/
-
         void onItemLongClick(View view, int position); /*SE EJECUTA AL MANTENER PRESIONADO EN EL ITEM*/
     }
 
-    public void setOnClickListener(ViewHolder_Nota.ClickListener clickListener) {
+    public void setOnClickListener(ViewHolderContacto.ClickListener clickListener){
         mClickListener = clickListener;
     }
 
@@ -47,15 +47,15 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
     }
 
     public void SetearDatosContacto(Context context,
-                            String id_contacto,
-                            String uid_contacto,
-                            String nombres,
-                            String apellidos,
-                            String correo,
-                            String telefono,
-                            String edad,
-                            String direccion,
-                            String imagen){
+                                    String id_contacto,
+                                    String uid_contacto,
+                                    String nombres,
+                                    String apellidos,
+                                    String correo,
+                                    String telefono,
+                                    String edad,
+                                    String direccion,
+                                    String imagen){
 
         ImageView Imagen_c_Item;
         TextView Id_c_Item, Uid_c_Item, nombres_c_Item, apellidos_c_Item, correo_c_Item, telefono_c_Item, edad_c_Item, direccion_c_Item;
@@ -79,17 +79,15 @@ public class ViewHolderContacto extends RecyclerView.ViewHolder {
         edad_c_Item.setText(edad);
         direccion_c_Item.setText(direccion);
 
-        try{
+        try {
+            /*Si la imagen del contacto existe existe en la BD*/
+            Glide.with(context).load(imagen).placeholder(R.drawable.imagen_contacto).into(Imagen_c_Item);
 
-            Glide.with(context).load(imagen).placeholder(R.drawable.icono_contacto).into(Imagen_c_Item);
 
-        }catch(Exception e){
-
-            Glide.with(context).load(R.drawable.icono_contacto).into(Imagen_c_Item);
-
+        }catch (Exception e){
+            /*Si la imagen del contacto NO existe existe en la BD*/
+            Glide.with(context).load(R.drawable.imagen_contacto).into(Imagen_c_Item);
         }
-
-
 
     }
 

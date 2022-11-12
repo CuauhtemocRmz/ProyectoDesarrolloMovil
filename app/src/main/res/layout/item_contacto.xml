@@ -2,7 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardUseCompatPadding="true"
     android:padding="0.2dp"
@@ -17,6 +17,7 @@
         android:orientation="vertical"
         android:padding="5dp">
 
+        <!--Imagen de contacto-->
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/Imagen_c_Item"
             android:layout_width="180dp"
@@ -32,71 +33,86 @@
             android:orientation="vertical"
             android:layout_marginTop="5dp">
 
+            <!--Id de contacto-->
             <TextView
                 android:id="@+id/Id_c_Item"
                 android:text="@string/Id_c_Item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Uid del usuario-->
             <TextView
                 android:id="@+id/Uid_c_Item"
                 android:text="@string/Uid_c_Item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Nombres de contacto-->
             <TextView
                 android:id="@+id/nombres_c_Item"
                 android:text="@string/nombres_c_Item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:gravity="center"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Apellidos de contacto-->
             <TextView
                 android:id="@+id/apellidos_c_Item"
                 android:text="@string/apellidos_c_Item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Correo de contacto-->
             <TextView
                 android:id="@+id/correo_c_Item"
                 android:text="@string/correo_c_Item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="18sp"
+                android:textSize="13sp"
+                android:gravity="center"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Teléfono de contacto-->
             <TextView
                 android:id="@+id/telefono_c_Item"
                 android:text="@string/telefono_c_Item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Edad de contacto-->
             <TextView
                 android:id="@+id/edad_c_Item"
                 android:text="@string/edad_c_Item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
 
+            <!--Dirección del contacto-->
             <TextView
                 android:id="@+id/direccion_c_Item"
                 android:text="@string/direccion_c_Item"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:fontFamily="@font/worksans"/>
-
-
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
