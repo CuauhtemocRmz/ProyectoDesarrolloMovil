@@ -194,14 +194,14 @@
 
     <!--- DETALLE CONTACTO -->
     <string name="DetalleContactoTXT">Detalle del contacto</string>
-    <string name="Id_C_D">--</string>
-    <string name="Uid_Usuario_D">--</string>
-    <string name="Nombre_C_D">--</string>
-    <string name="Apellidos_C_D">--</string>
-    <string name="Correo_C_D">--</string>
-    <string name="Telefono_C_D">--</string>
-    <string name="Edad_C_D">--</string>
-    <string name="Direccion_C_D">--</string>
+    <string name="Id_C_D"> -- </string>
+    <string name="Uid_Usuario_D"> -- </string>
+    <string name="Nombre_C_D"> -- </string>
+    <string name="Apellidos_C_D"> -- </string>
+    <string name="Correo_C_D"> -- </string>
+    <string name="Telefono_C_D"> -- </string>
+    <string name="Edad_C_D"> -- </string>
+    <string name="Direccion_C_D"> -- </string>
 
 
 </resources>

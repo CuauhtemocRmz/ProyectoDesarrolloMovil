@@ -226,7 +226,7 @@ public class Listar_Contactos extends AppCompatActivity {
                 });
             }
         });
-        builder.setPositiveButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Toast.makeText(Listar_Contactos.this, "Cancelado por el usuario", Toast.LENGTH_SHORT).show();

@@ -18,7 +18,7 @@ public class Detalle_Contacto extends AppCompatActivity {
     TextView Id_C_D, Uid_Usuario_D, Nombre_C_D, Apellidos_C_D, Correo_C_D, Edad_C_D, Telefono_C_D, Direccion_C_D;
 
     String id_c , uid_usuario, nombres_c, apellidos_c, correo_c, telefono_c, edad_c, direccion_c;
-    Button Llamar_C, Mensaje_C;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
