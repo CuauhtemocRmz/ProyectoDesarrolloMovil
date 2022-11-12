@@ -1,5 +1,6 @@
 package com.example.agenda_10b.Contactos;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Dialog;
@@ -27,15 +28,24 @@ public class Agregar_Contacto extends AppCompatActivity {
     ImageView Editar_Telefono_C;
     Button Btn_Guardar_Contacto;
     Dialog dialog_establecer_telefono;
+
     DatabaseReference BD_Usuarios;
 
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
 
+    Dialog dialog;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agregar_contacto);
+
+        ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
+        actionBar.setTitle("Agregar contacto");
+        actionBar.setDisplayShowHomeEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         InicializarVariables();
         ObtenerUidUsuario();
@@ -71,6 +81,8 @@ public class Agregar_Contacto extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        dialog = new Dialog(Agregar_Contacto.this);
     }
 
     private void ObtenerUidUsuario(){
@@ -111,6 +123,7 @@ public class Agregar_Contacto extends AppCompatActivity {
     }
 
     private void AgregarContacto(){
+        /*Obtener los datos*/
         String uid = Uid_Usuario_C.getText().toString();
         String nombres = Nombres_C.getText().toString();
         String apellidos = Apellidos_C.getText().toString();
@@ -119,9 +132,11 @@ public class Agregar_Contacto extends AppCompatActivity {
         String edad = Edad_C.getText().toString();
         String direccion = Direccion_C.getText().toString();
 
+        /*Creamos la cadena única*/
         String id_contacto = BD_Usuarios.push().getKey();
 
-        if(!uid.equals("") && !nombres.equals("")){
+        /*Validar los datos*/
+        if (!uid.equals("") && !nombres.equals("")){
 
             Contacto contacto = new Contacto(
                     id_contacto,
@@ -134,14 +149,43 @@ public class Agregar_Contacto extends AppCompatActivity {
                     direccion,
                     "");
 
+            /*Establecer el nombre de la bd*/
             String Nombre_BD = "Contactos";
             assert id_contacto != null;
-            BD_Usuarios.child(user.getUid()).child(id_contacto).setValue(contacto);
+            BD_Usuarios.child(user.getUid()).child(Nombre_BD).child(id_contacto).setValue(contacto);
             Toast.makeText(this, "Contacto agregado", Toast.LENGTH_SHORT).show();
             onBackPressed();
+
         }
-        else{
-            Toast.makeText(this, "Ora pues! Completa el nombre del contacto", Toast.LENGTH_SHORT).show();
+        else {
+            //Toast.makeText(this, "Por favor complete al menos el nombre del contacto", Toast.LENGTH_SHORT).show();
+            ValidarRegistroContacto();
         }
+
+    }
+
+    private void ValidarRegistroContacto(){
+
+        Button Btn_Validar_Registro_C;
+
+        dialog.setContentView(R.layout.cuadro_dialogo_validar_registro_c);
+
+        Btn_Validar_Registro_C = dialog.findViewById(R.id.Btn_Validar_Registro_C);
+
+        Btn_Validar_Registro_C.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(false);
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return super.onSupportNavigateUp();
     }
 }

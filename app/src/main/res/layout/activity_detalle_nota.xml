@@ -37,6 +37,7 @@
                     android:text="@string/Id_nota_Detalle_TXT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/ColorTitulos"
                     android:layout_gravity="center"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
@@ -79,6 +80,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -120,6 +122,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -161,6 +164,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -202,6 +206,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -243,6 +248,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -284,6 +290,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
@@ -325,6 +332,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:textColor="@color/ColorTitulos"
                     android:fontFamily="@font/worksans"
                     android:textSize="20sp"
                     android:layout_marginStart="10dp"/>
