@@ -34,7 +34,7 @@
             android:hint="@string/Nombres_C"
             android:fontFamily="@font/worksans"
             android:layout_marginTop="10dp"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords|textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -42,7 +42,7 @@
             android:id="@+id/Apellidos_C"
             android:hint="@string/Apellidos_C"
             android:fontFamily="@font/worksans"
-            android:inputType="textPersonName"
+            android:inputType="textCapWords|textPersonName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
@@ -91,7 +91,7 @@
             android:id="@+id/Direccion_C"
             android:hint="@string/Direccion_C"
             android:fontFamily="@font/worksans"
-            android:inputType="text"
+            android:inputType="textCapWords|text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         

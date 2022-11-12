@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
-import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -91,7 +90,30 @@ public class Listar_Contactos extends AppCompatActivity {
                 viewHolderContacto.setOnClickListener(new ViewHolderContacto.ClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        Toast.makeText(Listar_Contactos.this, "On item click", Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(Listar_Contactos.this, "On item click", Toast.LENGTH_SHORT).show();
+                        //Obteniendo los datos del contacto seleccionado
+                        String id_c = getItem(position).getId_contacto();
+                        String uid_usuario = getItem(position).getUid_contacto();
+                        String nombres_c = getItem(position).getNombres();
+                        String apellidos_c = getItem(position).getApellidos();
+                        String correo_c = getItem(position).getCorreo();
+                        String telefono_c = getItem(position).getTelefono();
+                        String edad_c = getItem(position).getEdad();
+                        String direccion_c = getItem(position).getDireccion();
+                        String imagen_c = getItem(position).getImagen();
+
+                        //Enviar los datos a la siguiente actividad
+                        Intent intent = new Intent(Listar_Contactos.this, Detalle_Contacto.class);
+                        intent.putExtra("id_c", id_c);
+                        intent.putExtra("uid_usuario", uid_usuario);
+                        intent.putExtra("nombres_c", nombres_c);
+                        intent.putExtra("apellidos_c", apellidos_c);
+                        intent.putExtra("correo_c", correo_c);
+                        intent.putExtra("telefono_c", telefono_c);
+                        intent.putExtra("edad_c", edad_c);
+                        intent.putExtra("direccion_c", direccion_c);
+                        intent.putExtra("imagen_c", imagen_c);
+                        startActivity(intent);
                     }
 
                     @Override
