@@ -55,6 +55,7 @@
     <string name="Perfil_usuario">Perfil del usuario</string>
     <string name="Actualizar_pass">Actualizar pass</string>
     <string name="Agregar_contacto">Agregar contacto</string>
+    <string name="Vaciar_contactos">Eliminar todos los contactos</string>
 
     <!--ITEM NOTA-->
     <string name="Id_nota_Item">Id nota</string>
@@ -112,6 +113,12 @@
     <!--CUADRO DE DIÁLOGO - VALIDAR REGISTRO DE CONTACTO-->
     <string name="ValidarTXT">Por favor complete al menos el campo nombre del contacto</string>
     <string name="Btn_Validar_Registro_C">Entendido</string>
+
+    <!--Opciones para el contacto-->
+    <string name="ElegirOpcionesContactoTXT">Seleccione una opcion para el contacto</string>
+    <string name="Btn_Eliminar_C">Eliminar</string>
+    <string name="Btn_Actualizar_C">Actualizar</string>
+
 
     <!--ACTUALIZAR NOTA-->
     <string name="Id_nota_A">Id nota</string>
@@ -184,5 +191,17 @@
     <string name="Edad_C">Edad</string>
     <string name="Direccion_C">Dirección</string>
     <string name="Btn_Guardar_Contacto">Guardar contacto</string>
+
+    <!--- DETALLE CONTACTO -->
+    <string name="DetalleContactoTXT">Detalle del contacto</string>
+    <string name="Id_C_D"> -- </string>
+    <string name="Uid_Usuario_D"> -- </string>
+    <string name="Nombre_C_D"> -- </string>
+    <string name="Apellidos_C_D"> -- </string>
+    <string name="Correo_C_D"> -- </string>
+    <string name="Telefono_C_D"> -- </string>
+    <string name="Edad_C_D"> -- </string>
+    <string name="Direccion_C_D"> -- </string>
+
 
 </resources>
