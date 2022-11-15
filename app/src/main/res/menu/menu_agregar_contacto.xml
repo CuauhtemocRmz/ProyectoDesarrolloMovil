@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <item
-        android:id="@+id/Agregar_Contacto"
+        android:id="@+id/Buscar_contactos"
+        android:title="@string/Buscar_contactos"
+        android:icon="@drawable/icono_buscar_contactos"
+        app:showAsAction="ifRoom"
+        app:actionViewClass="androidx.appcompat.widget.SearchView">
+
+    </item>
+
+    <item
+        android:id="@+id/Agregar_contacto"
         android:title="@string/Agregar_contacto"
         android:icon="@drawable/icono_agregar_contacto"
-        app:showAsAction="ifRoom">
-
+        app:showAsAction="ifRoom"
+        >
 
     </item>
 
@@ -14,7 +24,8 @@
         android:id="@+id/Vaciar_contactos"
         android:title="@string/Vaciar_contactos"
         android:icon="@drawable/icono_eliminarr_contacto"
-        app:showAsAction="ifRoom">
+        app:showAsAction="ifRoom"
+        >
 
 
     </item>

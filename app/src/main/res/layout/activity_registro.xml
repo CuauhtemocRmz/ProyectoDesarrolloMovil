@@ -53,6 +53,23 @@
             android:layout_marginTop="15dp">
 
             <EditText
+                android:id="@+id/ApellidoEt"
+                android:hint="@string/ApellidoEt"
+                android:inputType="textPersonName|textCapWords"
+                android:padding="20dp"
+                android:drawableStart="@drawable/icono_nombres"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/worksans"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <EditText
                 android:id="@+id/CorreoEt"
                 android:hint="@string/CorreoEt"
                 android:inputType="textEmailAddress"

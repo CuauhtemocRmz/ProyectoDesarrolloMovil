@@ -1,4 +1,4 @@
-package com.example.agenda_10b.Detalle;
+package com.example.agenda_10b.notas;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -30,10 +30,10 @@ public class Detalle_Nota extends AppCompatActivity {
     Button Boton_Importante;
 
     TextView Id_nota_Detalle, Uid_usuario_Detalle, Correo_usuario_Detalle, Titulo_Detalle, Descripcion_Detalle,
-            Fecha_Registro_Detalle, Fecha_Nota_Detalle, Estado_Detalle;
+            Fecha_Registro_Detalle, Fecha_Nota_Detalle, Hora_Nota_Detalle, Estado_Detalle;
 
     //DECLARAR LOS STRING PARA ALMACENAR LOS DATOS RECUPERADOS DE ACTIVIDAD ANTERIOR
-    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, estado_R;
+    String id_nota_R , uid_usuario_R , correo_usuario_R, fecha_registro_R, titulo_R, descripcion_R, fecha_R, hora_R, estado_R;
 
     boolean ComprobarNotaImportante = false;
 
@@ -53,14 +53,11 @@ public class Detalle_Nota extends AppCompatActivity {
         SetearDatosRecuperados();
         VerificarNotaImportante();
 
-        Boton_Importante.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (ComprobarNotaImportante){
-                    Eliminar_Nota_Importante();
-                }else {
-                    Agregar_Notas_Importantes();
-                }
+        Boton_Importante.setOnClickListener(view -> {
+            if (ComprobarNotaImportante){
+                Eliminar_Nota_Importante();
+            }else {
+                Agregar_Notas_Importantes();
             }
         });
     }
@@ -73,6 +70,7 @@ public class Detalle_Nota extends AppCompatActivity {
         Descripcion_Detalle = findViewById(R.id.Descripcion_Detalle);
         Fecha_Registro_Detalle = findViewById(R.id.Fecha_Registro_Detalle);
         Fecha_Nota_Detalle = findViewById(R.id.Fecha_Nota_Detalle);
+        Hora_Nota_Detalle = findViewById(R.id.Hora_Nota_Detalle);
         Estado_Detalle = findViewById(R.id.Estado_Detalle);
         Boton_Importante = findViewById(R.id.Boton_Importante);
 
@@ -90,6 +88,7 @@ public class Detalle_Nota extends AppCompatActivity {
         titulo_R = intent.getString("titulo");
         descripcion_R = intent.getString("descripcion");
         fecha_R = intent.getString("fecha_nota");
+        hora_R = intent.getString("hora_nota");
         estado_R = intent.getString("estado");
 
     }
@@ -102,6 +101,7 @@ public class Detalle_Nota extends AppCompatActivity {
         Titulo_Detalle.setText(titulo_R);
         Descripcion_Detalle.setText(descripcion_R);
         Fecha_Nota_Detalle.setText(fecha_R);
+        Hora_Nota_Detalle.setText(hora_R);
         Estado_Detalle.setText(estado_R);
     }
 
@@ -120,9 +120,8 @@ public class Detalle_Nota extends AppCompatActivity {
             titulo_R = intent.getString("titulo");
             descripcion_R = intent.getString("descripcion");
             fecha_R = intent.getString("fecha_nota");
+            hora_R = intent.getString("hora_nota");
             estado_R = intent.getString("estado");
-
-
 
             HashMap<String , String> Nota_Importante = new HashMap<>();
             Nota_Importante.put("id_nota", id_nota_R);
@@ -132,6 +131,7 @@ public class Detalle_Nota extends AppCompatActivity {
             Nota_Importante.put("titulo", titulo_R);
             Nota_Importante.put("descripcion", descripcion_R);
             Nota_Importante.put("fecha_nota", fecha_R);
+            Nota_Importante.put("hora_nota",hora_R);
             Nota_Importante.put("estado", estado_R);
 
 
@@ -143,12 +143,7 @@ public class Detalle_Nota extends AppCompatActivity {
                         public void onSuccess(Void unused) {
                             Toast.makeText(Detalle_Nota.this, "Se ha añadido a notas importantes", Toast.LENGTH_SHORT).show();
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    }).addOnFailureListener(e -> Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show());
         }
     }
 
@@ -159,7 +154,6 @@ public class Detalle_Nota extends AppCompatActivity {
             Bundle intent = getIntent().getExtras();
             id_nota_R = intent.getString("id_nota");
 
-
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Usuarios");
             reference.child(firebaseAuth.getUid()).child("Mis notas importantes").child(id_nota_R)
                     .removeValue()
@@ -168,13 +162,7 @@ public class Detalle_Nota extends AppCompatActivity {
                         public void onSuccess(Void unused) {
                             Toast.makeText(Detalle_Nota.this, "La nota ya no es importante", Toast.LENGTH_SHORT).show();
                         }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    });
-
+                    }).addOnFailureListener(e -> Toast.makeText(Detalle_Nota.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show());
         }
     }
 
@@ -207,7 +195,6 @@ public class Detalle_Nota extends AppCompatActivity {
 
                         }
                     });
-
         }
     }
 

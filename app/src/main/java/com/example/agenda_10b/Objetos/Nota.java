@@ -3,13 +3,13 @@ package com.example.agenda_10b.Objetos;
 public class Nota {
 
     //Atributos con los que contará una NOTA
-    String id_nota, uid_usuario, correo_usuario, fecha_hora_actual, titulo, descripcion, fecha_nota, estado;
+    String id_nota, uid_usuario, correo_usuario, fecha_hora_actual, titulo, descripcion, fecha_nota, hora_nota, estado;
 
     public Nota() {
 
     }
 
-    public Nota(String id_nota, String uid_usuario, String correo_usuario, String fecha_hora_actual, String titulo, String descripcion, String fecha_nota, String estado) {
+    public Nota(String id_nota, String uid_usuario, String correo_usuario, String fecha_hora_actual, String titulo, String descripcion, String fecha_nota,String hora_nota, String estado) {
         this.id_nota = id_nota;
         this.uid_usuario = uid_usuario;
         this.correo_usuario = correo_usuario;
@@ -17,6 +17,7 @@ public class Nota {
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.fecha_nota = fecha_nota;
+        this.hora_nota = hora_nota;
         this.estado = estado;
     }
 
@@ -71,6 +72,8 @@ public class Nota {
     public String getFecha_nota() {
         return fecha_nota;
     }
+
+    public String getHora_nota() { return hora_nota;}
 
     public void setFecha_nota(String fecha_nota) {
         this.fecha_nota = fecha_nota;
