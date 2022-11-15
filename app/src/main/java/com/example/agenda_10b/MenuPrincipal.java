@@ -280,7 +280,7 @@ public class MenuPrincipal extends AppCompatActivity {
 
                     //Setear los datos en los respectivos TextView
                     UidPrincipal.setText(uid);
-                    NombresPrincipal.setText(nombres + "" +apellidos);
+                    NombresPrincipal.setText(nombres + " " +apellidos);
                     CorreoPrincipal.setText(correo);
 
                     //Habilitar los botones del menú
