@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:layout_gravity="center">
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:lottie_imageAssetsFolder="assets"
+        android:layout_gravity="center"
+        app:lottie_fileName="filtro.json"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"/>
+
+    <TextView
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/worksans"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:text="@string/FiltroTXT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/Todas_notas"
+        android:text="@string/Todas_notas"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/worksans"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/Notas_Finalizadas"
+        android:text="@string/Notas_Finalizadas"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/worksans"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/Notas_No_Finalizadas"
+        android:text="@string/Notas_No_Finalizadas"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/worksans"
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

@@ -50,19 +50,9 @@ public class Agregar_Contacto extends AppCompatActivity {
         InicializarVariables();
         ObtenerUidUsuario();
 
-        Editar_Telefono_C.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Establecer_telefono_contacto();
-            }
-        });
+        Editar_Telefono_C.setOnClickListener(v -> Establecer_telefono_contacto());
 
-        Btn_Guardar_Contacto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AgregarContacto();
-            }
-        });
+        Btn_Guardar_Contacto.setOnClickListener(v -> AgregarContacto());
     }
 
     private void InicializarVariables(){
@@ -101,20 +91,17 @@ public class Agregar_Contacto extends AppCompatActivity {
         Establecer_Telefono = dialog_establecer_telefono.findViewById(R.id.Establecer_Telefono);
         Btn_Aceptar_Telefono = dialog_establecer_telefono.findViewById(R.id.Btn_Aceptar_Telefono);
 
-        Btn_Aceptar_Telefono.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String codigo_pais = ccp.getSelectedCountryCodeWithPlus();
-                String telefono = Establecer_Telefono.getText().toString();
-                String codigo_pais_telefono = codigo_pais+telefono; //+51956605043
+        Btn_Aceptar_Telefono.setOnClickListener(v -> {
+            String codigo_pais = ccp.getSelectedCountryCodeWithPlus();
+            String telefono = Establecer_Telefono.getText().toString();
+            String codigo_pais_telefono = codigo_pais+telefono;
 
-                if (!telefono.equals("")){
-                    Telefono_C.setText(codigo_pais_telefono);
-                    dialog_establecer_telefono.dismiss();
-                }else {
-                    Toast.makeText(Agregar_Contacto.this, "Ingrese un número telefónico", Toast.LENGTH_SHORT).show();
-                    dialog_establecer_telefono.dismiss();
-                }
+            if (!telefono.equals("")){
+                Telefono_C.setText(codigo_pais_telefono);
+                dialog_establecer_telefono.dismiss();
+            }else {
+                Toast.makeText(Agregar_Contacto.this, "Ingrese un número telefónico", Toast.LENGTH_SHORT).show();
+                dialog_establecer_telefono.dismiss();
             }
         });
 
@@ -172,12 +159,7 @@ public class Agregar_Contacto extends AppCompatActivity {
 
         Btn_Validar_Registro_C = dialog.findViewById(R.id.Btn_Validar_Registro_C);
 
-        Btn_Validar_Registro_C.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
+        Btn_Validar_Registro_C.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
         dialog.setCanceledOnTouchOutside(false);

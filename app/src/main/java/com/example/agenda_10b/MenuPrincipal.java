@@ -6,12 +6,14 @@ import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +23,11 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.LinearLayoutCompat;
 
-import com.example.agenda_10b.AgregarNota.Agregar_Nota;
+import com.bumptech.glide.Glide;
+import com.example.agenda_10b.notas.Agregar_Nota;
 import com.example.agenda_10b.Contactos.Listar_Contactos;
-import com.example.agenda_10b.ListarNotas.Listar_Notas;
-import com.example.agenda_10b.NotasImportantes.Notas_Importantes;
+import com.example.agenda_10b.notas.Listar_Notas;
+import com.example.agenda_10b.notas.Notas_Importantes;
 import com.example.agenda_10b.Perfil.Perfil_Usuario;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -41,7 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
     Button AgregarNotas, ListarNotas, Importantes,Contactos,AcercaDe,CerrarSesion;
     FirebaseAuth firebaseAuth;
     FirebaseUser user;
-
+    ImageView Imagen_Usuario;
     TextView UidPrincipal, NombresPrincipal, CorreoPrincipal;
     Button EstadoCuentaPrincipal;
     ProgressBar progressBarDatos;
@@ -58,6 +61,8 @@ public class MenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.activity_menu_principal);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("AgenD");
+
+        Imagen_Usuario = findViewById(R.id.Imagen_Usuario);
 
         UidPrincipal = findViewById(R.id.UidPrincipal);
         NombresPrincipal = findViewById(R.id.NombresPrincipal);
@@ -77,7 +82,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
 
-
         AgregarNotas = findViewById(R.id.AgregarNotas);
         ListarNotas = findViewById(R.id.ListarNotas);
         Importantes = findViewById(R.id.Importantes);
@@ -89,17 +93,14 @@ public class MenuPrincipal extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
 
-        EstadoCuentaPrincipal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (user.isEmailVerified()){
-                    //Si la cuenta está verificada
-                    //Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
-                    AnimacionCuentaVerificada();
-                }else {
-                    //Si la cuenta no está verificada
-                    VerificarCuentaCorreo();
-                }
+        EstadoCuentaPrincipal.setOnClickListener(view -> {
+            if (user.isEmailVerified()){
+                //Si la cuenta está verificada
+                //Toast.makeText(MenuPrincipal.this, "Cuenta ya verificada", Toast.LENGTH_SHORT).show();
+                AnimacionCuentaVerificada();
+            }else {
+                //Si la cuenta no está verificada
+                VerificarCuentaCorreo();
             }
         });
 
@@ -132,7 +133,7 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MenuPrincipal.this, Notas_Importantes.class));
-                Toast.makeText(MenuPrincipal.this, "Notas Archivadas", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MenuPrincipal.this, "Notas Importantes", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -149,7 +150,7 @@ public class MenuPrincipal extends AppCompatActivity {
         AcercaDe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "Acerca De", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(MenuPrincipal.this, Informacion.class));
             }
         });
 
@@ -164,8 +165,8 @@ public class MenuPrincipal extends AppCompatActivity {
     private void VerificarCuentaCorreo() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("verificar cuenta")
-                .setMessage("¿Estás seguro(a) de enviar instrucciones de verificación a su correo electrónico? "
-                        +user.getEmail())
+                .setMessage("¿Quieres verificar la cuenta: "
+                        +user.getEmail() + "?")
                 .setPositiveButton("Enviar", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -181,7 +182,7 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     private void EnviarCorreoAVerificacion() {
-        progressDialog.setMessage("Enviando instrucciones de verificación a su correo electrónico "+ user.getEmail());
+        progressDialog.setMessage("Verificacion enviada a su correo electrónico "+ user.getEmail());
         progressDialog.show();
 
         user.sendEmailVerification()
@@ -190,7 +191,7 @@ public class MenuPrincipal extends AppCompatActivity {
                     public void onSuccess(Void unused) {
                         //Envío fue exitoso
                         progressDialog.dismiss();
-                        Toast.makeText(MenuPrincipal.this, "Instrucciones enviadas, revise su bandeja " +user.getEmail(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MenuPrincipal.this, "Verificacion enviada, revise su bandeja " +user.getEmail(), Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -273,11 +274,13 @@ public class MenuPrincipal extends AppCompatActivity {
                     //Obtener los datos
                     String uid = ""+snapshot.child("uid").getValue();
                     String nombres = ""+snapshot.child("nombres").getValue();
+                    String apellidos =""+snapshot.child("apellidos").getValue();
                     String correo = ""+snapshot.child("correo").getValue();
+                    String imagen = ""+snapshot.child("imagen_perfil").getValue();
 
                     //Setear los datos en los respectivos TextView
                     UidPrincipal.setText(uid);
-                    NombresPrincipal.setText(nombres);
+                    NombresPrincipal.setText(nombres + "" +apellidos);
                     CorreoPrincipal.setText(correo);
 
                     //Habilitar los botones del menú
@@ -288,6 +291,8 @@ public class MenuPrincipal extends AppCompatActivity {
                     AcercaDe.setEnabled(true);
                     CerrarSesion.setEnabled(true);
 
+
+                    obtenerImagen(imagen);
                 }
             }
 
@@ -296,6 +301,18 @@ public class MenuPrincipal extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void obtenerImagen(String imagen) {
+        try {
+            //Si la imagen se obtuvo con exito
+            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.icono_perfil).into(Imagen_Usuario);
+
+        }catch (Exception e){
+            //Si la imagen no fue obtenida con exito
+            Glide.with(getApplicationContext()).load(R.drawable.icono_perfil).into(Imagen_Usuario);
+
+        }
     }
 
     @Override

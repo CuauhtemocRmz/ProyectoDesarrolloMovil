@@ -22,7 +22,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/portada"/>
+                android:src="@drawable/portada_contacto"/>
 
             <!--Imagen de perfil-->
             <androidx.appcompat.widget.AppCompatImageView
@@ -57,7 +57,7 @@
                 android:id="@+id/Correo_Perfil"
                 android:text="@string/Correo_Perfil"
                 android:layout_gravity="center"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 android:fontFamily="@font/worksans"
                 android:layout_marginTop="5dp"
@@ -96,17 +96,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!--Edad-->
-            <EditText
-                android:id="@+id/Edad_Perfil"
-                android:hint="@string/Edad_Perfil"
-                android:inputType="number"
-                android:fontFamily="@font/worksans"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-
-
             <!--Domiciio-->
             <EditText
                 android:id="@+id/Domicilio_Perfil"
@@ -120,15 +109,6 @@
             <EditText
                 android:id="@+id/Universidad_Perfil"
                 android:hint="@string/Universidad_Perfil"
-                android:inputType="text"
-                android:fontFamily="@font/worksans"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-            <!--Profesión-->
-            <EditText
-                android:id="@+id/Profesion_Perfil"
-                android:hint="@string/Profesion_Perfil"
                 android:inputType="text"
                 android:fontFamily="@font/worksans"
                 android:layout_width="match_parent"

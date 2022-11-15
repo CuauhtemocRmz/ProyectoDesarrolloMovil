@@ -9,7 +9,7 @@
     android:padding="10dp">
 
     <TextView
-        android:text="@string/ElegirOpcionesContactoTXT"
+        android:text="@string/ElegirOpcionContactoTXT"
         android:textSize="20sp"
         android:fontFamily="@font/worksans"
         android:layout_gravity="center"

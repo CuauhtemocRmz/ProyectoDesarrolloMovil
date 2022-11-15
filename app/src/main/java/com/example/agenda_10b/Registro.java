@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class Registro extends AppCompatActivity {
 
-    EditText NombreEt,CorreoEt,ContaseñaEt,ConfirmarContraseñaEt;
+    EditText NombreEt,ApellidoEt,CorreoEt,ContaseñaEt,ConfirmarContraseñaEt;
     Button RegistrarUsuario;
     TextView TengounacuentaTXT;
 
@@ -30,7 +30,7 @@ public class Registro extends AppCompatActivity {
     ProgressDialog progressDialog;
 
 
-    String nombre = " " , correo = " ", password = "" , confirmarpassword = "";
+    String nombres = " " , apellidos = "", correo = " ", password = "" , confirmarpassword = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class Registro extends AppCompatActivity {
         actionBar.setDisplayShowHomeEnabled(true);
 
         NombreEt = findViewById(R.id.NombreEt);
+        ApellidoEt = findViewById(R.id.ApellidoEt);
         CorreoEt = findViewById(R.id.CorreoEt);
         ContaseñaEt = findViewById(R.id.ContraseñaEt);
         ConfirmarContraseñaEt = findViewById(R.id.ConfirmarContraseñaEt);
@@ -72,23 +73,28 @@ public class Registro extends AppCompatActivity {
     }
 
     private void ValidarDatos(){
-        nombre = NombreEt.getText().toString();
+        nombres = NombreEt.getText().toString();
+        apellidos = ApellidoEt.getText().toString();
         correo = CorreoEt.getText().toString();
         password = ContaseñaEt.getText().toString();
         confirmarpassword = ConfirmarContraseñaEt.getText().toString();
 
-        if (TextUtils.isEmpty(nombre)){
+        if (TextUtils.isEmpty(nombres)){
             Toast.makeText(this, "Ingrese nombre", Toast.LENGTH_SHORT).show();
-        }else if(!nombre.matches("^[\\p{L} .'-]+$")){
+        }else if(!nombres.matches("^[\\p{L} .'-]+$")){
             Toast.makeText(this, "Ingrese un nombre valido", Toast.LENGTH_SHORT).show();
-
+        }
+        else  if (TextUtils.isEmpty(apellidos)){
+            Toast.makeText(this, "Ingrese apellidos", Toast.LENGTH_SHORT).show();
+        }
+        else if(!apellidos.matches("^[\\p{L} .'-]+$")){
+            Toast.makeText(this, "Ingrese apellidos validos", Toast.LENGTH_SHORT).show();
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
             Toast.makeText(this, "Ingrese correo", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(password)){
             Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show();
-
         }
         else if (TextUtils.isEmpty(confirmarpassword)){
             Toast.makeText(this, "Confirme contraseña", Toast.LENGTH_SHORT).show();
@@ -125,8 +131,15 @@ public class Registro extends AppCompatActivity {
         HashMap<String, String> Datos = new HashMap<>();
         Datos.put("uid",  uid);
         Datos.put("correo", correo);
-        Datos.put("nombres", nombre);
+        Datos.put("nombres", nombres);
+        Datos.put("apellidos",apellidos);
         Datos.put("password", password);
+
+        Datos.put("telefono","");
+        Datos.put("domicilio","");
+        Datos.put("universidad","");
+        Datos.put("fecha_de_nacimiento", "");
+        Datos.put("imagen_perfil","");
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Usuarios");
         databaseReference.child(uid)
