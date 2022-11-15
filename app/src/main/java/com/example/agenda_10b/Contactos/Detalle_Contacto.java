@@ -80,7 +80,7 @@ public class Detalle_Contacto extends AppCompatActivity {
 
         Mensaje_C.setOnClickListener(v -> {
             AlertDialog.Builder builder = new AlertDialog.Builder(Detalle_Contacto.this);
-            builder.setMessage("¿Deseas realizar una llamada?");
+            builder.setMessage("¿Deseas realizar una mensaje?");
             builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
@@ -95,7 +95,7 @@ public class Detalle_Contacto extends AppCompatActivity {
             builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    Toast.makeText(Detalle_Contacto.this, "No deseo llamar", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Detalle_Contacto.this, "No deseo mandar un mensaje", Toast.LENGTH_SHORT).show();
                 }
             });
             builder.create().show();
