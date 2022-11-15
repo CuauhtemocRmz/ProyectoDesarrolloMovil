@@ -127,7 +127,7 @@
                     android:fontFamily="@font/worksans"
                     android:textSize="18sp"
                     android:layout_gravity="center"
-                    android:layout_width="150dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -147,11 +147,11 @@
 
                 <TextView
                     android:id="@+id/Fecha_Nacimiento_Perfil"
-                    android:text="@string/Fecha_Nacimiento_Perfil"
+                    android:hint="@string/Fecha_Nacimiento_Perfil"
                     android:fontFamily="@font/worksans"
                     android:layout_gravity="center"
                     android:textSize="18sp"
-                    android:layout_width="150dp"
+                    android:layout_width="250dp"
                     android:layout_height="wrap_content"/>
 
                 <androidx.appcompat.widget.AppCompatImageView
@@ -169,7 +169,7 @@
             <Button
                 android:id="@+id/Guardar_Datos"
                 android:text="@string/Guardar_Datos"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="15dp"
                 android:layout_gravity="center"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"/>
