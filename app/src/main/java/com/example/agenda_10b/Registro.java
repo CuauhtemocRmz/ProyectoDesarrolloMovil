@@ -22,7 +22,7 @@ import java.util.HashMap;
 
 public class Registro extends AppCompatActivity {
 
-    EditText NombreEt,ApellidoEt,CorreoEt,ContaseñaEt,ConfirmarContraseñaEt;
+    EditText NombreEt,ApellidoEt,CorreoEt, ConfirmarCorreo,ContaseñaEt,ConfirmarContraseñaEt;
     Button RegistrarUsuario;
     TextView TengounacuentaTXT;
 
@@ -30,7 +30,7 @@ public class Registro extends AppCompatActivity {
     ProgressDialog progressDialog;
 
 
-    String nombres = " " , apellidos = "", correo = " ", password = "" , confirmarpassword = "";
+    String nombres = " " , apellidos = "", correo = " ", confirmaremail = "" , password = "" , confirmarpassword = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +45,7 @@ public class Registro extends AppCompatActivity {
         NombreEt = findViewById(R.id.NombreEt);
         ApellidoEt = findViewById(R.id.ApellidoEt);
         CorreoEt = findViewById(R.id.CorreoEt);
+        ConfirmarCorreo = findViewById(R.id.ConfirmarCorreoEt);
         ContaseñaEt = findViewById(R.id.ContraseñaEt);
         ConfirmarContraseñaEt = findViewById(R.id.ConfirmarContraseñaEt);
         RegistrarUsuario = findViewById(R.id.RegistrarUsuario);
@@ -76,6 +77,7 @@ public class Registro extends AppCompatActivity {
         nombres = NombreEt.getText().toString();
         apellidos = ApellidoEt.getText().toString();
         correo = CorreoEt.getText().toString();
+        confirmaremail = ConfirmarCorreo.getText().toString();
         password = ContaseñaEt.getText().toString();
         confirmarpassword = ConfirmarContraseñaEt.getText().toString();
 
@@ -92,6 +94,12 @@ public class Registro extends AppCompatActivity {
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
             Toast.makeText(this, "Ingrese correo", Toast.LENGTH_SHORT).show();
+        }
+        else if (TextUtils.isEmpty(confirmaremail)){
+            Toast.makeText(this, "Confirme correo", Toast.LENGTH_SHORT).show();
+        }
+        else if (!correo.equals(confirmaremail)){
+            Toast.makeText(this, "Los correos no coinciden", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(password)){
             Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show();

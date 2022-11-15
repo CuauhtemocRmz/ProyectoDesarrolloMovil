@@ -33,6 +33,7 @@
     <string name="NombreEt">Nombres</string>
     <string name="ApellidoEt">Apellidos</string>
     <string name="CorreoEt">Correo electrónico</string>
+    <string name="CorreoEtV">Confirmar Correo electrónico</string>
     <string name="ContaseñaEt">Contraseña</string>
     <string name="ConfirmarContraseñaEt">Confirmar contraseña</string>
     <string name="RegistrarUsuario">Registrar</string>
@@ -264,6 +265,7 @@
     <!--Configuracion-->
     <string name="Uid_Eliminar">Uid del usuario</string>
     <string name="EliminarCuenta">Eliminar mi cuenta</string>
+
 
 
 
