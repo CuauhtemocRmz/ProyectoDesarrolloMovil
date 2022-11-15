@@ -58,11 +58,6 @@
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <!-- Separador -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#ffffff"/>
             <!--ICONO - TXT - UID USUARIO-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
