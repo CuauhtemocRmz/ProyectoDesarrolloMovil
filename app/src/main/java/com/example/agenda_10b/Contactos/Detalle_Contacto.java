@@ -2,11 +2,14 @@ package com.example.agenda_10b.Contactos;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -19,6 +22,10 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.agenda_10b.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Detalle_Contacto extends AppCompatActivity {
 
@@ -45,23 +52,55 @@ public class Detalle_Contacto extends AppCompatActivity {
         SetearDatosContacto();
         ObtenerImagen();
 
+
         Llamar_C.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(Detalle_Contacto.this,
-                    Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
-                LlamarContacto();
-            }else {
-                SolicitudPermisoLlamada.launch(Manifest.permission.CALL_PHONE);
-            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(Detalle_Contacto.this);
+            builder.setMessage("¿Deseas realizar una llamada?");
+            builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+
+                    if (ContextCompat.checkSelfPermission(Detalle_Contacto.this,
+                            Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED){
+                        LlamarContacto();
+                    }else {
+                        SolicitudPermisoLlamada.launch(Manifest.permission.CALL_PHONE);
+                    }
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Toast.makeText(Detalle_Contacto.this, "Llamar en otro momento", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            builder.create().show();
         });
 
         Mensaje_C.setOnClickListener(v -> {
-            if (ContextCompat.checkSelfPermission(Detalle_Contacto.this,
-                    Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
-                EnviarMensaje();
-            }else {
-                SolicitudPermisoMensaje.launch(Manifest.permission.SEND_SMS);
-            }
+            AlertDialog.Builder builder = new AlertDialog.Builder(Detalle_Contacto.this);
+            builder.setMessage("¿Deseas realizar una mensaje?");
+            builder.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    if (ContextCompat.checkSelfPermission(Detalle_Contacto.this,
+                            Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_GRANTED){
+                        EnviarMensaje();
+                    }else {
+                        SolicitudPermisoMensaje.launch(Manifest.permission.SEND_SMS);
+                    }
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialogInterface, int i) {
+                    Toast.makeText(Detalle_Contacto.this, "No deseo mandar un mensaje", Toast.LENGTH_SHORT).show();
+                }
+            });
+            builder.create().show();
         });
+
     }
 
     private void InicializarVariables(){
