@@ -44,10 +44,10 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         });
     }
 
-    public void SetearDatos(Context context, String id_nota, String uid_usuario, String correo_usuario, String fecha_hora_registro, String titulo, String descripcion, String fecha_nota, String estado){
+    public void SetearDatos(Context context, String id_nota, String uid_usuario, String correo_usuario, String fecha_hora_registro, String titulo, String descripcion, String fecha_nota, String hora_nota, String estado){
 
         //DECLARAR LAS VISTAS
-        TextView Id_nota_Item, Uid_Usuario_Item, Correo_usuario_Item, Fecha_hora_registro_Item, Titulo_Item, Descripcion_Item, Fecha_Item, Estado_Item;
+        TextView Id_nota_Item, Uid_Usuario_Item, Correo_usuario_Item, Fecha_hora_registro_Item, Titulo_Item, Descripcion_Item, Fecha_Item, Hora_Item, Estado_Item;
 
         ImageView Tarea_Finalizada_Item, Tarea_No_Finzalizada_Item;
 
@@ -59,6 +59,7 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         Titulo_Item = mView.findViewById(R.id.Titulo_Item);
         Descripcion_Item = mView.findViewById(R.id.Descripcion_Item);
         Fecha_Item = mView.findViewById(R.id.Fecha_Item);
+        Hora_Item = mView.findViewById(R.id.Hora_Item);
         Estado_Item = mView.findViewById(R.id.Estado_Item);
 
         Tarea_Finalizada_Item = mView.findViewById(R.id.Tarea_Finalizada_Item);
@@ -72,6 +73,7 @@ public class ViewHolder_Nota extends RecyclerView.ViewHolder {
         Titulo_Item.setText(titulo);
         Descripcion_Item.setText(descripcion);
         Fecha_Item.setText(fecha_nota);
+        Hora_Item.setText(hora_nota);
         Estado_Item.setText(estado);
 
         //GESTIONAMOS EL COLOR DEL ESTADO

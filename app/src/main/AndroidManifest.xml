@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -38,18 +40,19 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
+        <activity android:name=".Contactos.Actualizar_Contacto"></activity>
         <activity
-            android:name=".Detalle.Detalle_Nota"
+            android:name=".notas.Detalle_Nota"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity android:name=".ActualizarNota.Actualizar_Nota" />
+        <activity android:name=".notas.Actualizar_Nota" />
         <activity android:name=".Perfil.Perfil_Usuario" />
-        <activity android:name=".NotasImportantes.Notas_Importantes" />
-        <activity android:name=".ListarNotas.Listar_Notas" />
-        <activity android:name=".AgregarNota.Agregar_Nota" />
+        <activity android:name=".notas.Notas_Importantes" />
+        <activity android:name=".notas.Listar_Notas" />
+        <activity android:name=".notas.Agregar_Nota" />
         <activity
             android:name=".MenuPrincipal"
             android:exported="true" />
@@ -79,6 +82,7 @@
         </activity>
         <activity android:name=".ActualizarPass.ActualizarPassUsuario" />
         <activity android:name=".Perfil.Editar_imagen_perfil" />
+        <activity android:name=".Informacion"></activity>
     </application>
 
 </manifest>

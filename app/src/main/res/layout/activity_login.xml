@@ -78,13 +78,22 @@
             android:text="@string/Btn_Logeo" />
 
         <TextView
-            android:id="@+id/UsuarioNuevoTXT"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="28dp"
             android:fontFamily="@font/worksans"
             android:gravity="center"
+            android:text="@string/NoTienesCuenta"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/UsuarioNuevoTXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/worksans"
+            android:gravity="center"
             android:text="@string/UsuarioNuevoTXT"
+            android:textColor="@color/colorPrimary"
             android:textSize="18sp"
             android:textStyle="bold" />
 
