@@ -157,8 +157,8 @@
                     android:id="@+id/Editar_fecha"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:layout_marginStart="5dp"
-                    android:src="@drawable/calendario"/>
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/fecha_nacimiento"/>
 
                 <TextView
                     android:id="@+id/Fecha_Nacimiento_Perfil"
