@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/portada_contacto" />
+                android:src="@drawable/portada_perfil" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/Imagen_C_A"
@@ -28,14 +28,14 @@
                 android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="120dp"
-                android:background="#354F60"
+                android:background="@drawable/borde_curviado"
                 android:scaleType="centerCrop"
-                android:src="@drawable/icono_contacto" />
+                android:src="@drawable/contacto" />
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/Actualizar_imagen_C_A"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
                 android:layout_marginStart="130dp"
                 android:layout_marginTop="230dp"
                 android:scaleType="centerCrop"
@@ -55,6 +55,7 @@
                 android:id="@+id/Id_C_A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:fontFamily="@font/worksans"
                 android:text="@string/Id_C_A" />
 
@@ -62,6 +63,7 @@
                 android:id="@+id/Uid_C_A"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:fontFamily="@font/worksans"
                 android:text="@string/Uid_C_A" />
 

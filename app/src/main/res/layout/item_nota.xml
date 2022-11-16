@@ -25,7 +25,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/icono_item_nota" />
+            android:src="@drawable/item_nota" />
 
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"

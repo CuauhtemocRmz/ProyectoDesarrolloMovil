@@ -18,9 +18,9 @@
             android:layout_width="350dp"
             android:layout_height="350dp"
             android:layout_gravity="center"
-            android:background="#354F60"
+            android:background="@drawable/borde_curviado"
             android:scaleType="centerCrop"
-            android:src="@drawable/imagen_perfil_usuario"/>
+            android:src="@drawable/imagen_user"/>
 
         <Button
             android:id="@+id/BtnElegirImagenDe"
