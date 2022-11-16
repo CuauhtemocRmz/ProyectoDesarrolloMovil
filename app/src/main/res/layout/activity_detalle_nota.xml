@@ -23,6 +23,7 @@
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <!--ICONO-->
@@ -37,6 +38,7 @@
                     android:text="@string/Id_nota_Detalle_TXT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:textColor="@color/ColorTitulos"
                     android:layout_gravity="center"
                     android:fontFamily="@font/worksans"
@@ -50,20 +52,17 @@
                 android:id="@+id/Id_nota_Detalle"
                 android:text="@string/Id_nota_Detalle"
                 android:fontFamily="@font/worksans"
+                android:visibility="gone"
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <!-- Separador -->
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#ffffff"/>
             <!--ICONO - TXT - UID USUARIO-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
                 android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
@@ -93,6 +92,7 @@
                 android:text="@string/Uid_usuario_Detalle"
                 android:fontFamily="@font/worksans"
                 android:textSize="17sp"
+                android:visibility="gone"
                 android:textStyle="bold"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
@@ -103,6 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <!--ICONO-->
@@ -133,6 +134,7 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:layout_gravity="center"
+                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
@@ -369,7 +371,7 @@
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="100dp"
             android:background="#34495E">
 
             <Button

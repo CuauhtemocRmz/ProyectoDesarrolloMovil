@@ -17,7 +17,7 @@
     <!--INFORMACIÓN BRAYAN -->
     <string name="Dev_Brayan_Nombre">Brayan Corona Gutierrez</string>
     <string name="Dev_Brayan_Alias">(Kawaiski)</string>
-    <string name="Dev_Brayan_Frase">La vida es una lenteja o la tomas o la dejas.</string>
+    <string name="Dev_Brayan_Frase">Cada fracaso es un paso hacia el éxito.</string>
 
     <!--INFORMACIÓN KEVIN -->
     <string name="Dev_Kevin_Nombre">Kevin Omar González Martínez</string>
@@ -33,6 +33,7 @@
     <string name="NombreEt">Nombres</string>
     <string name="ApellidoEt">Apellidos</string>
     <string name="CorreoEt">Correo electrónico</string>
+    <string name="CorreoEtV">Confirmar Correo electrónico</string>
     <string name="ContaseñaEt">Contraseña</string>
     <string name="ConfirmarContraseñaEt">Confirmar contraseña</string>
     <string name="RegistrarUsuario">Registrar</string>
@@ -211,7 +212,7 @@
     <string name="Domicilio_Perfil">Domicilio</string>
     <string name="Universidad_Perfil">Universidad</string>
     <string name="Profesion_Perfil">Profesión</string>
-    <string name="Fecha_Nacimiento_Perfil">Fecha de nac.</string>
+    <string name="Fecha_Nacimiento_Perfil">Fecha de nacimiento</string>
     <string name="Guardar_Datos">Guardar datos</string>
 
     <!--Perfil del usuario [Imagen de perfil]-->
@@ -264,6 +265,7 @@
     <!--Configuracion-->
     <string name="Uid_Eliminar">Uid del usuario</string>
     <string name="EliminarCuenta">Eliminar mi cuenta</string>
+
 
 
 
