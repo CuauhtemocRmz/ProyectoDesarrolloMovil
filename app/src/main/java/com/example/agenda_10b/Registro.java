@@ -82,21 +82,21 @@ public class Registro extends AppCompatActivity {
         confirmarpassword = ConfirmarContraseñaEt.getText().toString();
 
         if (TextUtils.isEmpty(nombres)){
-            Toast.makeText(this, "Ingrese nombre", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Rellena el campo nombre", Toast.LENGTH_SHORT).show();
         }else if(!nombres.matches("^[\\p{L} .'-]+$")){
             Toast.makeText(this, "Ingrese un nombre valido", Toast.LENGTH_SHORT).show();
         }
         else  if (TextUtils.isEmpty(apellidos)){
-            Toast.makeText(this, "Ingrese apellidos", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Rellena el campo apellidos", Toast.LENGTH_SHORT).show();
         }
         else if(!apellidos.matches("^[\\p{L} .'-]+$")){
             Toast.makeText(this, "Ingrese apellidos validos", Toast.LENGTH_SHORT).show();
         }
         else if (!Patterns.EMAIL_ADDRESS.matcher(correo).matches()){
-            Toast.makeText(this, "Ingrese correo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese un correo valido", Toast.LENGTH_SHORT).show();
         }
         else if (TextUtils.isEmpty(confirmaremail)){
-            Toast.makeText(this, "Confirme correo", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Confirme el correo ", Toast.LENGTH_SHORT).show();
         }
         else if (!correo.equals(confirmaremail)){
             Toast.makeText(this, "Los correos no coinciden", Toast.LENGTH_SHORT).show();
@@ -104,9 +104,23 @@ public class Registro extends AppCompatActivity {
         else if (TextUtils.isEmpty(password)){
             Toast.makeText(this, "Ingrese contraseña", Toast.LENGTH_SHORT).show();
         }
+        else if(!password.matches("^([a-zA-Z0-9@$!%*?&]{8,})$")){
+            Toast.makeText(this, "Contraseña: Minimo 8 caracteres", Toast.LENGTH_SHORT).show();
+        }
+        else if(!password.matches("^(?=.*[0-9])([a-zA-Z0-9@$!%*?&]{8,})$")){
+            Toast.makeText(this, "Contraseña: Minimo 1 numero", Toast.LENGTH_SHORT).show();
+        }
+        else if(!password.matches("^(?=.*[a-z])([a-zA-Z0-9@$!%*?&]{8,})$")){
+            Toast.makeText(this, "Contraseña: Minimo 1 minuscula", Toast.LENGTH_SHORT).show();
+        }
+        else if(!password.matches("^(?=.*[A-Z])([a-zA-Z0-9@$!%*?&]{8,})$")){
+            Toast.makeText(this, "Contraseña: Minimo 1 mayuscula", Toast.LENGTH_SHORT).show();
+        }
+        else if(!password.matches("^(?=.*[@$!%*?&])([a-zA-Z0-9@$!%*?&]{8,})$")){
+            Toast.makeText(this, "Contraseña: Minimo 1 simbolo", Toast.LENGTH_SHORT).show();
+        }
         else if (TextUtils.isEmpty(confirmarpassword)){
             Toast.makeText(this, "Confirme contraseña", Toast.LENGTH_SHORT).show();
-
         }
         else if (!password.equals(confirmarpassword)){
             Toast.makeText(this, "Las contraseñas no coinciden", Toast.LENGTH_SHORT).show();
