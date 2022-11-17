@@ -201,7 +201,6 @@ public class MenuPrincipal extends AppCompatActivity {
                         Toast.makeText(MenuPrincipal.this, "Falló debido a: "+e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
-
     }
 
     private void VerificarEstadoDeCuenta(){
