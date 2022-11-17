@@ -24,8 +24,8 @@
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:layout_gravity="center"
-                android:src="@drawable/icono_item_nota_importante"/>
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/item_nota_importante"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 

@@ -21,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="210dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/portada_contacto"/>
+                android:src="@drawable/portada_perfil"/>
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/Imagen_C_D"
@@ -29,9 +29,9 @@
                 android:layout_height="140dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="120dp"
-                android:background="#354f60"
+                android:background="@drawable/borde_curviado"
                 android:scaleType="centerCrop"
-                android:src="@drawable/imagen_contacto" />
+                android:src="@drawable/contacto" />
 
         </RelativeLayout>
 
@@ -142,7 +142,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icono_llamada"/>
+                        android:src="@drawable/llamada_telefonica"/>
 
                     <Button
                         android:id="@+id/Llamar_C"
@@ -164,7 +164,7 @@
                     <androidx.appcompat.widget.AppCompatImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:src="@drawable/icono_enviar_mensaje"/>
+                        android:src="@drawable/mensaje"/>
 
                     <Button
                         android:id="@+id/Mensaje_C"
