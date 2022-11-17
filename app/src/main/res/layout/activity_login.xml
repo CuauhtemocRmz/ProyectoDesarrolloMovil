@@ -19,12 +19,14 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/worksans"
             android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="@color/ColorTitulos"
             android:text="@string/IniciarSesionTXT"
             android:textSize="25dp" />
 
         <com.airbnb.lottie.LottieAnimationView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
             app:lottie_autoPlay="true"
@@ -93,7 +95,27 @@
             android:fontFamily="@font/worksans"
             android:gravity="center"
             android:text="@string/UsuarioNuevoTXT"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/ColorTitulos"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/worksans"
+            android:gravity="center"
+            android:text="@string/OlvidasteContraseña"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/RecuperarContraseñaTXT"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/worksans"
+            android:gravity="center"
+            android:text="@string/RecuperarContraseñaTXT"
+            android:textColor="@color/ColorTitulos"
             android:textSize="18sp"
             android:textStyle="bold" />
 

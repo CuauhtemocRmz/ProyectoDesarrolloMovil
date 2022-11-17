@@ -45,8 +45,15 @@
     <string name="CorreoLogin">Correo</string>
     <string name="PassLogin">Contraseña</string>
     <string name="Btn_Logeo">Ingresar</string>
-    <string name="NoTienesCuenta">No tienes cuenta?</string>
+    <string name="NoTienesCuenta">¿No tienes cuenta?</string>
     <string name="UsuarioNuevoTXT">Regístrate</string>
+    <string name="OlvidasteContraseña">¿Olvidaste tu contraseña?</string>
+    <string name="RecuperarContraseñaTXT">Recuperar contraseña</string>
+
+    <!-- ACTIVIDAD RECUPERAR CONTRASEÑA -->
+    <string name="BtnRecuperarContraseña">Recuperar contraseña</string>
+    <string name="IngresaCorreoRecuperacion">Ingresa el correo electronico de tu cuenta</string>
+
 
     <!--MENÚ PRINCIPAL-->
     <string name="BienvenidoPrincipal">Bienvenido(a)</string>

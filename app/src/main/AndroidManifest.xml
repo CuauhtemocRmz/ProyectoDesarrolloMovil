@@ -83,6 +83,7 @@
         <activity android:name=".ActualizarPass.ActualizarPassUsuario" />
         <activity android:name=".Perfil.Editar_imagen_perfil" />
         <activity android:name=".Informacion"></activity>
+        <activity android:name=".Recuperar_Contraseña"></activity>
     </application>
 
 </manifest>
