@@ -95,7 +95,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
-            <!--Domiciio-->
+            <com.example.agenda_10b.model.AutocompleteEditText
+                android:id="@+id/Domicilio_Perfil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/Domicilio_Perfil"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+            <!--Domiciio
             <EditText
                 android:id="@+id/Domicilio_Perfil"
                 android:hint="@string/Domicilio_Perfil"
@@ -103,7 +111,7 @@
                 android:fontFamily="@font/worksans"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-
+-->
             <!--Universidad-->
             <EditText
                 android:id="@+id/Universidad_Perfil"

@@ -1,5 +1,7 @@
 package com.example.agenda_10b.Contactos;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
@@ -16,6 +18,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,9 +26,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.bumptech.glide.Glide;
+import com.example.agenda_10b.model.AutocompleteEditText;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.AddressComponent;
+import com.google.android.libraries.places.api.model.AddressComponents;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -40,12 +52,15 @@ import com.google.firebase.storage.UploadTask;
 import com.hbb20.CountryCodePicker;
 import com.example.agenda_10b.R;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Actualizar_Contacto extends AppCompatActivity {
 
+
     TextView Id_C_A, Uid_C_A, Telefono_C_A;
-    EditText Nombres_C_A, Apellidos_C_A, Correo_C_A, Edad_C_A, Direccion_C_A;
+    EditText Nombres_C_A, Apellidos_C_A, Correo_C_A, Edad_C_A;
     ImageView Imagen_C_A, Actualizar_imagen_C_A, Actualizar_Telefono_C_A;
     Button Btn_Actualizar_C_A;
 
@@ -60,8 +75,46 @@ public class Actualizar_Contacto extends AppCompatActivity {
 
     ProgressDialog progressDialog;
 
+    //para la busqueda por google maps
+    AutocompleteEditText Direccion_C_A;
+    PlacesClient placesClient;
+
+    // empezar el intento de autocompletado
+    private final ActivityResultLauncher<Intent> startAutocomplete = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            (ActivityResultCallback<ActivityResult>) result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        Place place = Autocomplete.getPlaceFromIntent(intent);
+
+                        // leer los componentes de la direccion y auto rellar
+                        Log.d(TAG, "Lugar: " + place.getAddressComponents());
+                        RellenarCampos(place);
+                    }
+                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
+                    // el usuario cancelo la operacion
+                    Log.i(TAG, "El usuario cancelo el autcompletado");
+                }
+            });
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //declarar el apikey de Places
+        final String apiKey = "AIzaSyD5fYSygGr7sdUesacT5BkZPyPkMi02FQI";
+
+        //validar que no este vacio
+        if (apiKey.equals("")) {
+            Toast.makeText(this, getString(R.string.error_api_key), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // inicializar el plugin de Places
+        if (!Places.isInitialized()) {
+            Places.initialize(getApplicationContext(), apiKey);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_actualizar_contacto);
 
@@ -108,6 +161,61 @@ public class Actualizar_Contacto extends AppCompatActivity {
         progressDialog.setCanceledOnTouchOutside(false);
     }
 
+
+
+    // declaramos la funcion
+    private void startAutocompleteIntent() {
+
+        // Especificar el tipo de dato con el que se trabajara
+        List<Place.Field> fields = Arrays.asList(Place.Field.ADDRESS_COMPONENTS,
+                Place.Field.LAT_LNG, Place.Field.VIEWPORT);
+
+        // Definimos el pais, tipo de direccion
+        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields)
+                .setCountry("MX")
+                .setTypeFilter(TypeFilter.ADDRESS)
+                .build(this);
+        startAutocomplete.launch(intent);
+    }
+
+    private void RellenarCampos(Place place) {
+        AddressComponents components = place.getAddressComponents();
+        StringBuilder Direccion = new StringBuilder();
+
+        if (components != null) {
+            for (AddressComponent component : components.asList()) {
+                String type = component.getTypes().get(0);
+                switch (type) {
+
+                    case "route": {
+                        Direccion.insert(0, component.getShortName());
+                        break;
+                    }
+                    case "street_number": {
+                        Direccion.append(" #");
+                        Direccion.append(component.getName());
+                        break;
+                    }
+
+                    case "locality": {
+                        Direccion.append(" , ");
+                        Direccion.append(component.getName());
+                        break;
+                    }
+                    case "administrative_area_level_1":
+                        Direccion.append(" , ");
+                        Direccion.append(component.getShortName());
+                        break;
+                }
+
+            }
+        }
+
+        Direccion_C_A.setText(Direccion.toString());
+
+    }
+
+
     private void InicializarVistas(){
         Id_C_A = findViewById(R.id.Id_C_A);
         Uid_C_A = findViewById(R.id.Uid_C_A);
@@ -116,7 +224,7 @@ public class Actualizar_Contacto extends AppCompatActivity {
         Apellidos_C_A = findViewById(R.id.Apellidos_C_A);
         Correo_C_A = findViewById(R.id.Correo_C_A);
         Edad_C_A = findViewById(R.id.Edad_C_A);
-        Direccion_C_A = findViewById(R.id.Direccion_C_A);
+        //Direccion_C_A = findViewById(R.id.Direccion_C_A);
         Imagen_C_A = findViewById(R.id.Imagen_C_A);
         Actualizar_imagen_C_A = findViewById(R.id.Actualizar_imagen_C_A);
         Actualizar_Telefono_C_A = findViewById(R.id.Actualizar_Telefono_C_A);
@@ -126,6 +234,12 @@ public class Actualizar_Contacto extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
+
+        placesClient = Places.createClient(this);
+
+        Direccion_C_A = findViewById(R.id.Direccion_C_A);
+
+        Direccion_C_A.setOnClickListener(v -> startAutocompleteIntent());
 
     }
 

@@ -97,24 +97,24 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/Telefono_C_A"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:fontFamily="@font/worksans"
-                    android:inputType="phone"
-                    android:text="@string/Telefono_C_A"
-                    android:textSize="20sp" />
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/Actualizar_Telefono_C_A"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
                     android:layout_gravity="center"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="0dp"
                     android:src="@drawable/editar_telefono" />
 
+                <TextView
+                    android:id="@+id/Telefono_C_A"
+                    android:layout_width="200dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="15dp"
+                    android:fontFamily="@font/worksans"
+                    android:inputType="phone"
+                    android:hint="@string/Telefono_C_A"
+                    android:textSize="20sp" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -126,13 +126,23 @@
                 android:hint="@string/Edad_C_A"
                 android:inputType="number" />
 
-            <EditText
+
+            <com.example.agenda_10b.model.AutocompleteEditText
+                android:id="@+id/Direccion_C_A"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/Direccion_C_A"
+                android:imeOptions="actionNext"
+                android:inputType="text"/>
+
+           <!--  <EditText
                 android:id="@+id/Direccion_C_A"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/worksans"
                 android:hint="@string/Direccion_C_A"
-                android:inputType="textCapWords|text" />
+                android:inputType="textCapWords|text" />-->
 
 
             <Button

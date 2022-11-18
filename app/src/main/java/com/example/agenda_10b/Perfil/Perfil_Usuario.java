@@ -1,9 +1,13 @@
 package com.example.agenda_10b.Perfil;
 
+import static android.content.ContentValues.TAG;
+
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -15,13 +19,27 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.bumptech.glide.Glide;
+import com.example.agenda_10b.model.AutocompleteEditText;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.AddressComponent;
+import com.google.android.libraries.places.api.model.AddressComponents;
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.api.model.TypeFilter;
+import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.libraries.places.widget.Autocomplete;
+import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -34,15 +52,18 @@ import com.example.agenda_10b.ActualizarPass.ActualizarPassUsuario;
 import com.example.agenda_10b.MenuPrincipal;
 import com.example.agenda_10b.R;
 
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 
 public class Perfil_Usuario extends AppCompatActivity {
+
 
     ImageView Imagen_Perfil;
     TextView Correo_Perfil, Uid_Perfil, Telefono_Perfil, Fecha_Nacimiento_Perfil;
     EditText Nombres_Perfil, Apellidos_Perfil,
-            Domicilio_Perfil, Universidad_Perfil;
+           Universidad_Perfil;
 
     ImageView Editar_Telefono, Editar_fecha, Editar_imagen;
 
@@ -56,8 +77,48 @@ public class Perfil_Usuario extends AppCompatActivity {
 
     int dia, mes , anio;
 
+    //para la busqueda por google maps
+    private AutocompleteEditText Domicilio_Perfil;
+    private PlacesClient placesClient;
+
+
+    // empezar el intento de autocompletado
+    private final ActivityResultLauncher<Intent> startAutocomplete = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            (ActivityResultCallback<ActivityResult>) result -> {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                    Intent intent = result.getData();
+                    if (intent != null) {
+                        Place place = Autocomplete.getPlaceFromIntent(intent);
+
+                        // leer los componentes de la direccion y auto rellar
+                        Log.d(TAG, "Lugar: " + place.getAddressComponents());
+                        RellenarCampos(place);
+                    }
+                } else if (result.getResultCode() == Activity.RESULT_CANCELED) {
+                    // el usuario cancelo la operacion
+                    Log.i(TAG, "El usuario cancelo el autcompletado");
+                }
+            });
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //declarar el apikey de Places
+        final String apiKey = "AIzaSyD5fYSygGr7sdUesacT5BkZPyPkMi02FQI";
+
+        //validar que no este vacio
+        if (apiKey.equals("")) {
+            Toast.makeText(this, getString(R.string.error_api_key), Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        // inicializar el plugin de Places
+        if (!Places.isInitialized()) {
+            Places.initialize(getApplicationContext(), apiKey);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_perfil_usuario);
 
@@ -99,6 +160,59 @@ public class Perfil_Usuario extends AppCompatActivity {
 
     }
 
+
+    // declaramos la funcion
+    private void startAutocompleteIntent() {
+
+        // Especificar el tipo de dato con el que se trabajara
+        List<Place.Field> fields = Arrays.asList(Place.Field.ADDRESS_COMPONENTS,
+                Place.Field.LAT_LNG, Place.Field.VIEWPORT);
+
+        // Definimos el pais, tipo de direccion
+        Intent intent = new Autocomplete.IntentBuilder(AutocompleteActivityMode.OVERLAY, fields)
+                .setCountry("MX")
+                .setTypeFilter(TypeFilter.ADDRESS)
+                .build(this);
+        startAutocomplete.launch(intent);
+    }
+
+    private void RellenarCampos(Place place) {
+        AddressComponents components = place.getAddressComponents();
+        StringBuilder Direccion = new StringBuilder();
+
+        if (components != null) {
+            for (AddressComponent component : components.asList()) {
+                String type = component.getTypes().get(0);
+                switch (type) {
+
+                    case "route": {
+                        Direccion.insert(0, component.getShortName());
+                        break;
+                    }
+                    case "street_number": {
+                        Direccion.append(" #");
+                        Direccion.append(component.getName());
+                        break;
+                    }
+
+                    case "locality": {
+                        Direccion.append(" , ");
+                        Direccion.append(component.getName());
+                        break;
+                    }
+                    case "administrative_area_level_1":
+                        Direccion.append(" , ");
+                        Direccion.append(component.getShortName());
+                        break;
+                }
+
+            }
+        }
+
+        Domicilio_Perfil.setText(Direccion.toString());
+
+    }
+
     private void InicializarVariables(){
         Imagen_Perfil = findViewById(R.id.Imagen_Perfil);
         Correo_Perfil = findViewById(R.id.Correo_Perfil);
@@ -106,7 +220,7 @@ public class Perfil_Usuario extends AppCompatActivity {
         Nombres_Perfil = findViewById(R.id.Nombres_Perfil);
         Apellidos_Perfil = findViewById(R.id.Apellidos_Perfil);
         Telefono_Perfil = findViewById(R.id.Telefono_Perfil);
-        Domicilio_Perfil = findViewById(R.id.Domicilio_Perfil);
+        //Domicilio_Perfil = findViewById(R.id.Domicilio_Perfil);
         Universidad_Perfil = findViewById(R.id.Universidad_Perfil);
         Fecha_Nacimiento_Perfil = findViewById(R.id.Fecha_Nacimiento_Perfil);
 
@@ -121,6 +235,12 @@ public class Perfil_Usuario extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         user = firebaseAuth.getCurrentUser();
         Usuarios = FirebaseDatabase.getInstance().getReference("Usuarios");
+
+        placesClient = Places.createClient(this);
+
+        Domicilio_Perfil = findViewById(R.id.Domicilio_Perfil);
+
+        Domicilio_Perfil.setOnClickListener(v -> startAutocompleteIntent());
     }
 
     private void LecturaDeDatos(){
