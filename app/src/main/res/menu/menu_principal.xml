@@ -5,7 +5,7 @@
     <item
         android:id="@+id/Perfil_usuario"
         android:title="@string/Perfil_usuario"
-        android:icon="@drawable/icono_perfil_usuario"
+        android:icon="@drawable/img_user"
         app:showAsAction="ifRoom">
 
     </item>

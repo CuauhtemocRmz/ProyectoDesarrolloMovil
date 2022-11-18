@@ -5,7 +5,7 @@
     <item
         android:id="@+id/Vaciar_Todas_Las_Notas"
         android:title="@string/Vaciar_Todas_Las_Notas"
-        android:icon="@drawable/icono_eliminar_todas_las_notas"
+        android:icon="@drawable/img_eliminar"
         app:showAsAction="ifRoom">
 
     </item>
@@ -13,7 +13,7 @@
     <item
         android:id="@+id/Filtrar_Notas"
         android:title="@string/Filtrar_Notas"
-        android:icon="@drawable/icono_filtrar"
+        android:icon="@drawable/img_filtrar"
         app:showAsAction="ifRoom">
 
     </item>

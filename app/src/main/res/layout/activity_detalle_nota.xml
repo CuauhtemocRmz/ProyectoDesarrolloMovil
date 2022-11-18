@@ -150,7 +150,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/titulo_nota_detalle"/>
+                    android:src="@drawable/img_titulo"/>
 
                 <!--TXT-->
                 <TextView
@@ -188,7 +188,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/descripcion_nota_detalle"/>
+                    android:src="@drawable/img_descripcion"/>
 
                 <!--TXT-->
                 <TextView
@@ -226,7 +226,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/fecha_registro_nota_detalle"/>
+                    android:src="@drawable/img_reloj"/>
 
                 <!--TXT-->
                 <TextView
@@ -264,7 +264,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/fecha_nota_detalle"/>
+                    android:src="@drawable/img_calendario"/>
 
                 <!--TXT-->
                 <TextView
@@ -301,7 +301,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/icono_hora"/>
+                    android:src="@drawable/img_reloj"/>
 
                 <!--TXT-->
                 <TextView
@@ -339,7 +339,7 @@
                     android:layout_width="30dp"
                     android:layout_height="30dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/estado_detalle"/>
+                    android:src="@drawable/img_estado"/>
 
                 <!--TXT-->
                 <TextView

@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/Actualizar_Nota_BD"
-        android:icon="@drawable/icono_actualizar_cd"
+        android:icon="@drawable/img_actualiza"
         android:title="@string/Actualizar_Nota_BD"
         app:showAsAction="ifRoom">
 

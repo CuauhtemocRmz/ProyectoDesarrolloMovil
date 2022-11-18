@@ -83,7 +83,7 @@
     <string name="Estado"> No finalizado</string>
 
     <!--MENÚ-->
-    <string name="Agregar_Nota_BD">Agregar</string>
+    <string name="Agregar_Nota_BD">Guardar</string>
     <string name="Actualizar_Nota_BD">Actualizar</string>
     <string name="Vaciar_Todas_Las_Notas">Vaciar todas las notas</string>
     <string name="Filtrar_Notas">Filtrar notas</string>
