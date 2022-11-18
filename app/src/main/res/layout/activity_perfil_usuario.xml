@@ -70,6 +70,8 @@
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:drawableStart="@drawable/icono_uid_perfil_usuario"
+                android:visibility="gone"
+
                 android:drawablePadding="5dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/worksans"
@@ -128,21 +130,24 @@
                 android:layout_marginTop="5dp">
 
                 <!--Teléfono-->
+
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/Editar_Telefono"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_marginStart="0dp"
+                    android:src="@drawable/editar_telefono"/>
+
                 <TextView
                     android:id="@+id/Telefono_Perfil"
                     android:hint="@string/Telefono_Perfil"
                     android:fontFamily="@font/worksans"
                     android:textSize="18sp"
                     android:layout_gravity="center"
-                    android:layout_width="150dp"
+                    android:layout_width="250dp"
+                    android:layout_marginStart="20dp"
                     android:layout_height="wrap_content"/>
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/Editar_Telefono"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_marginStart="15dp"
-                    android:src="@drawable/editar_telefono"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -152,21 +157,21 @@
                 android:orientation="horizontal"
                 android:layout_marginTop="10dp">
 
-                <TextView
-                    android:id="@+id/Fecha_Nacimiento_Perfil"
-                    android:text="@string/Fecha_Nacimiento_Perfil"
-                    android:fontFamily="@font/worksans"
-                    android:layout_gravity="center"
-                    android:textSize="18sp"
-                    android:layout_width="150dp"
-                    android:layout_height="wrap_content"/>
-
                 <androidx.appcompat.widget.AppCompatImageView
                     android:id="@+id/Editar_fecha"
                     android:layout_width="35dp"
                     android:layout_height="35dp"
-                    android:layout_marginStart="15dp"
+                    android:layout_marginStart="0dp"
                     android:src="@drawable/fecha_nacimiento"/>
+                <TextView
+                    android:id="@+id/Fecha_Nacimiento_Perfil"
+                    android:hint="@string/Fecha_Nacimiento_Perfil"
+                    android:fontFamily="@font/worksans"
+                    android:layout_gravity="center"
+                    android:textSize="18sp"
+                    android:layout_width="250dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_height="wrap_content"/>
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 

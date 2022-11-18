@@ -2,7 +2,7 @@
     <!--INFORMACIÓN DE APLICACIÓN-->
     <string name="app_name">AgenD</string>
     <string name="DesarrolladaPor">Desarrollada Por:</string>
-    <string name="Version">Versión: 1.1</string>
+    <string name="Version">Versión: 1.3</string>
 
     <!--INFORMACIÓN CUAUHTÉMOC -->
     <string name="Dev_Cuauhtemoc_Nombre">Cuauhtémoc Ramírez Prieto</string>
