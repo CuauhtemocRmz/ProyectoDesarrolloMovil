@@ -5,7 +5,7 @@
     <item
         android:id="@+id/Actualizar_pass"
         android:title="@string/Actualizar_pass"
-        android:icon="@drawable/icono_actualizar_pass"
+        android:icon="@drawable/img_password"
         app:showAsAction="ifRoom">
 
     </item>

@@ -84,7 +84,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/nombre_menu"/>
+                            android:src="@drawable/img_perfil"/>
 
                         <!--NOMBRES-->
                         <TextView
@@ -113,7 +113,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/correo_menu"/>
+                            android:src="@drawable/img_correo"/>
 
                         <!---CORREO-->
                         <TextView
@@ -141,7 +141,7 @@
                             android:layout_width="20dp"
                             android:layout_height="20dp"
                             android:layout_gravity="center"
-                            android:src="@drawable/verificacion_principal"/>
+                            android:src="@drawable/img_verificacion"/>
 
                         <!---ESTADO-->
                         <Button

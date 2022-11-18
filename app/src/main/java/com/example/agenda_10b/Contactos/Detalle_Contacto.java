@@ -147,7 +147,7 @@ public class Detalle_Contacto extends AppCompatActivity {
 
         try {
 
-            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.imagen_contacto).into(Imagen_C_D);
+            Glide.with(getApplicationContext()).load(imagen).placeholder(R.drawable.icono_contacto).into(Imagen_C_D);
 
         }catch (Exception e){
 

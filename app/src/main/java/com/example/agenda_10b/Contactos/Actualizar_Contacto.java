@@ -157,7 +157,7 @@ public class Actualizar_Contacto extends AppCompatActivity {
 
         try {
 
-            Glide.with(getApplicationContext()).load(imagen_c).placeholder(R.drawable.contacto).into(Imagen_C_A);
+            Glide.with(getApplicationContext()).load(imagen_c).placeholder(R.drawable.icono_contacto).into(Imagen_C_A);
 
         }catch (Exception e){
 
