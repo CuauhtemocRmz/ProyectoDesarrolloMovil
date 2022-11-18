@@ -6,8 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
+import com.google.android.libraries.places.api.Places;
 
 public class MainActivity extends AppCompatActivity {
+
+
 
     Button Btn_Login, Btn_Registro;
     @Override
@@ -31,5 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,Registro.class));
             }
         });
+
+
+
     }
 }

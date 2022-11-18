@@ -273,6 +273,8 @@
     <string name="Uid_Eliminar">Uid del usuario</string>
     <string name="EliminarCuenta">Eliminar mi cuenta</string>
 
+    <!-- API PLACES Y MAPS-->
+    <string name="error_api_key">No se ha definido el API en gradle.properties</string>
 
 
 
